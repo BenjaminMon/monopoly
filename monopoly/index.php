@@ -276,32 +276,32 @@
       <!-- TOUJOURS TROISIEME LIGNE POUR LES COULEURS DES EMPLACEMENTS -->
       <tr class="Lbas">
         <!-- CASE 2 -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('6.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           10
         </td>
         <!-- CASE 4 -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('6.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           8
         </td>
         <!-- CASE 5 -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('6.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           7
         </td>
         <!-- CASE 7 -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('5.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           5
         </td>
         <!-- CASE 8 -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('5.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           4
         </td>
         <!-- CASE 10 -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('5.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           2
         </td>
