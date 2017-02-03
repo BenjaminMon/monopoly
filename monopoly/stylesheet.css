@@ -194,3 +194,14 @@ DEBUT DU CSS DES JOUEURS
 /*
 FIN DU CSS DES JOUEURS
 */
+/*
+DEBUT DU CSS BOUTON
+*/
+button{
+  border: solid black 3px;
+  background-color: #eeffcc;
+  font-weight: bold;
+}
+/*
+FIN DU CSS BOUTON
+*/

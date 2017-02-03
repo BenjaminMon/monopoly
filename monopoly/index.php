@@ -104,7 +104,7 @@
       <!-- PREMIERE ET DEUXIEME COLONNE -->
       <tr>
         <!-- CASE 2 DE LA LIGNE DE GAUCHE -->
-        <td class="relative" onclick="afficherPropriete('8.2')">
+        <td class="relative" onclick="afficherPropriete('4.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           2
         </td>
@@ -320,15 +320,12 @@
     function showRand(){
       var random1 = Math.floor(Math.random() * 6 + 1);
       var random2 = Math.floor(Math.random() * 6 + 1);
-
       $("#dice1").text(random1);
       $("#dice2").text(random2);
     }
-
     function setIntervals(callback, delay, repetitions){
       var a = 0;
       var intervalID = setInterval(function(){
-
         callback();
         if (++a === repetitions){
           clearInterval(intervalID);
@@ -337,7 +334,6 @@
         }
       }, delay);
     }
-
     $("#roll").click(function(){
       setIntervals(showRand, 10, 40)
     });
