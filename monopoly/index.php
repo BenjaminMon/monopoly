@@ -104,7 +104,7 @@
       <!-- PREMIERE ET DEUXIEME COLONNE -->
       <tr>
         <!-- CASE 2 DE LA LIGNE DE GAUCHE -->
-        <td class="relative" onclick="afficherPropriete('4.2')">
+        <td class="relative" onclick="afficherPropriete('8.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           2
         </td>
