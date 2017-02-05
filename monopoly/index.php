@@ -136,7 +136,7 @@
 
       <tr>
         <!-- CASE 4 DE LA LIGNE DE GAUCHE -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('8.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           4
         </td>
@@ -178,7 +178,7 @@
 
       <tr>
         <!-- CASE 7 DE LA LIGNE DE GAUCHE -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('7.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           7
         </td>
@@ -206,7 +206,7 @@
 
       <tr>
         <!-- CASE 9 DE LA LIGNE DE GAUCHE -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('7.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           9
         </td>
@@ -221,7 +221,7 @@
 
       <tr>
         <!-- CASE 10 DE LA LIGNE DE GAUCHE -->
-        <td class="relative">
+        <td class="relative" onclick="afficherPropriete('7.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           10
         </td>
