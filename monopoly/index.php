@@ -7,7 +7,10 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
-<body class="text_centrer">
-  <h1>Accueil</h1>
-  <p><a href="./tableau.php">Jouer</a></p>
+<body>
+  <div class="text_centrer centrer_vert">
+    <h1>Accueil</h1>
+    <p><a href="./tableau.php">Jouer</a></p>
+  </div>
 </body>
+</html>

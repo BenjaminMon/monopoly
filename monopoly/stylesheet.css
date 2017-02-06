@@ -1,4 +1,23 @@
 /*
+DEBUT DU CSS DE LA PAGE D'ACCUEIL
+*/
+html, body{
+  margin: 0px;
+  padding: 0px;
+  outline: 0px;
+  height: 100%;
+  background-color: #f5f5f5;
+}
+.centrer_vert {
+  margin: -20px 20% 0 20%;
+  height: 100%;
+  width: 60%;
+  background-color: #fff;
+}
+/*
+FIN DU CSS DE LA PAGE D'ACCUEIL
+*/
+/*
 DEBUT DU CSS DU TABLEAU
 */
 table{
