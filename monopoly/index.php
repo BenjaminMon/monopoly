@@ -104,9 +104,9 @@
       <!-- PREMIERE ET DEUXIEME COLONNE -->
       <tr>
         <!-- CASE 2 DE LA LIGNE DE GAUCHE -->
-        <td class="relative" onclick="afficherPropriete('8.2')">
+        <td class="text_centrer relative" onclick="afficherPropriete('8.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          2
+          <p class="rien">RUE DE LA PAIX</p><p></p><p class="rien">400 €</p>
         </td>
         <td class="maison8"></td>
         <!-- CASE CENTRALE -->
@@ -136,9 +136,9 @@
 
       <tr>
         <!-- CASE 4 DE LA LIGNE DE GAUCHE -->
-        <td class="relative" onclick="afficherPropriete('8.1')">
+        <td class="text_centrer relative" onclick="afficherPropriete('8.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          4
+          <p class="rien">AVENUE DES CHAMPS-ELYSEES</p><p></p><p class="rien">350 €</p>
         </td>
         <td class="maison8"></td>
         <!-- CASE 4 DE LA LIGNE DE DROITE -->
@@ -178,9 +178,9 @@
 
       <tr>
         <!-- CASE 7 DE LA LIGNE DE GAUCHE -->
-        <td class="relative" onclick="afficherPropriete('7.3')">
+        <td class="text_centrer relative" onclick="afficherPropriete('7.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          7
+          <p class="rien">BOULEVARD DES CAPUCINES</p><p></p><p class="rien">320 €</p>
         </td>
         <td class="maison7"></td>
         <!-- CASE 7 DE LA LIGNE DE DROITE -->
@@ -206,9 +206,9 @@
 
       <tr>
         <!-- CASE 9 DE LA LIGNE DE GAUCHE -->
-        <td class="relative" onclick="afficherPropriete('7.2')">
+        <td class=" text_centrer relative" onclick="afficherPropriete('7.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          9
+          <p class="rien">AVENUE FOCH</p><p></p><p class="rien">300 €</p>
         </td>
         <td class="maison7"></td>
         <!-- CASE 9 DE LA LIGNE DE DROITE -->
@@ -221,9 +221,9 @@
 
       <tr>
         <!-- CASE 10 DE LA LIGNE DE GAUCHE -->
-        <td class="relative" onclick="afficherPropriete('7.1')">
+        <td class="text_centrer relative" onclick="afficherPropriete('7.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          10
+          <p class="rien">AVENUE DE BRETEUIL</p><p></p><p class="rien">300 €</p>
         </td>
         <td class="maison7"></td>
         <!-- CASE 10 DE LA LIGNE DE DROITE -->
@@ -276,34 +276,34 @@
       <!-- TOUJOURS TROISIEME LIGNE POUR LES COULEURS DES EMPLACEMENTS -->
       <tr class="Lbas">
         <!-- CASE 2 -->
-        <td class="relative" onclick="afficherPropriete('6.3')">
+        <td class="text_centrer relative" onclick="afficherPropriete('6.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          10
+          <p class="rien">RUE LA FAYETTE</p><p></p><p class="rien">280 €</p>
         </td>
         <!-- CASE 4 -->
-        <td class="relative" onclick="afficherPropriete('6.2')">
+        <td class="text_centrer relative" onclick="afficherPropriete('6.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          8
+          <p class="rien">PLACE DE LA BOURSE</p><p></p><p class="rien">260 €</p>
         </td>
         <!-- CASE 5 -->
-        <td class="relative" onclick="afficherPropriete('6.1')">
+        <td class="text_centrer relative" onclick="afficherPropriete('6.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          7
+          <p class="rien">FAUBOURG SAINT-HONORE</p><p></p><p class="rien">260 €</p>
         </td>
         <!-- CASE 7 -->
-        <td class="relative" onclick="afficherPropriete('5.3')">
+        <td class="text_centrer relative" onclick="afficherPropriete('5.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          5
+          <p class="rien">AVENUE HENRI-MARTIN</p><p></p><p class="rien">240 €</p>
         </td>
         <!-- CASE 8 -->
-        <td class="relative" onclick="afficherPropriete('5.2')">
+        <td class="text_centrer relative" onclick="afficherPropriete('5.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          4
+          <p class="rien">BOULEVARD MALESHERBES</p><p></p><p class="rien">220 €</p>
         </td>
         <!-- CASE 10 -->
-        <td class="relative" onclick="afficherPropriete('5.1')">
+        <td class="text_centrer relative" onclick="afficherPropriete('5.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          2
+          <p class="rien">AVENUE MATIGNON</p><p></p><p class="rien">220 €</p>
         </td>
 
       </tr>
