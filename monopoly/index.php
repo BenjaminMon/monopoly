@@ -9,8 +9,15 @@
 </head>
 <body>
   <div class="text_centrer centrer_vert">
-    <h1>Accueil</h1>
-    <p><a href="./tableau.php">Jouer</a></p>
+    <div id="header">
+      <img src="Image/bannier.png" id="banniere" alt="bannière" />
+    </div>
+    <div id="body">
+      <form action="tableau.php" method="post">
+        <label for="nbJ">Nombre de joueurs : <input type="text" id="nbJ" name="nbJ" />
+        <input type="button" value="Jouer" />
+      </form>
+    </div>
   </div>
 </body>
 </html>
