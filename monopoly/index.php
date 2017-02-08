@@ -19,13 +19,28 @@
         <p>
           <input id="pseudo" type="text" placeholder="Pseudo" />
           <p id="boutonSolo" class="buttonJoueurAccueil" style="vertical-align:middle"><span>SOLO </span></p>
-          <p id="boutonSolo" class="buttonJoueurAccueil" onclick="transitionMulti()" style="vertical-align:middle"><span>MULTI </span></p>
+          <p id="boutonMulti" class="buttonJoueurAccueil" style="vertical-align:middle"><span>MULTI </span></p>
         </p>
       </div>
       <div id="bodyChoix" class="hidden">
         <p><a class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
         <p><a class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
         <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
+      </div>
+      <div id="bodySolo" class="hidden">
+        <div id="chxNbJoueur">
+          <p>Nombre d'IA</p>
+          <div id="select">
+        	  <select class="cs-select cs-skin-circular">
+  					  <option value="" disabled selected>Select an activity</option>
+  					  <option value="2">2</option>
+  					  <option value="3">3</option>
+  				    <option value="4">4</option>
+  				  </select>
+  			  </div>
+        </div>
+        <br />
+        <p><a href="choix.php?ch=1" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
       </div>
       <div id="bodyCreer" class="hidden">
         <p><input type="text" placeholder="Nom de la partie" /></p>
@@ -35,7 +50,6 @@
           <div id="select">
         	  <select class="cs-select cs-skin-circular">
   					  <option value="" disabled selected>Select an activity</option>
-  					  <option value="1">1</option>
   					  <option value="2">2</option>
   					  <option value="3">3</option>
   				    <option value="4">4</option>
@@ -50,6 +64,9 @@
       </div>
     </div>
   </div>
+  <script src="js/classie.js"></script>
+	<script src="js/selectFx.js"></script>
+  <script src="js/NbJoueurs.js"></script>
   <script>
     $(document).on('click', '#boutonRetourChoix', function(){
       $('#bodyAccueil').addClass('visible');
@@ -60,8 +77,8 @@
     $(document).on('click', '#boutonSolo', function(){
       $('#bodyAccueil').addClass('hidden');
       $('#bodyAccueil').removeClass('visible');
-      $('#bodyChoix').addClass('visible');
-      $('#bodyChoix').removeClass('hidden');
+      $('#bodySolo').addClass('visible');
+      $('#bodySolo').removeClass('hidden');
       var pseudo = $('#pseudo').val();
     });
     $(document).on('click', '#boutonMulti', function(){

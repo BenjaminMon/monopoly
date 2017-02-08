@@ -123,17 +123,12 @@ div.cs-skin-circular {
 }
 
 .cs-skin-circular.cs-active .cs-options li:nth-child(2) {
-	transform: translate3d(140px, -60px, 0);
+	transform: translate3d(0, -130px, 0);
 }
 
 
 .cs-skin-circular.cs-active .cs-options li:nth-child(3) {
-	transform: translate3d(140px, 60px, 0);
-}
-
-
-.cs-skin-circular.cs-active .cs-options li:nth-child(4) {
-	transform: translate3d(-140px, 60px, 0);
+	transform: translate3d(140px, -60px, 0);
 }
 
 .cs-skin-circular .cs-options li span {
