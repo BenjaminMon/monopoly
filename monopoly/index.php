@@ -21,7 +21,8 @@
     <!-- BODY (wrapper) -->
     <div id="body">
 
-      <!-- ACCUEIL -->
+    
+      <!-- ACCUEIL = SOLO OU MULTI -->
       <div id="bodyAccueil" class="visible">
         <p>
           <input id="pseudo" type="text" placeholder="Pseudo" />
@@ -30,6 +31,7 @@
         </p>
       </div>
 
+
       <!-- CHOIX  -->
       <div id="bodyChoix" class="hidden">
         <p><a id="boutonCreer" class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
@@ -37,24 +39,33 @@
         <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
 
+
+      <!-- SOLO => CHOIX NB IA -->
       <div id="bodySolo" class="hidden">
         <div id="chxNbJoueur">
           <p>Nombre d'IA</p>
           <div id="select">
-        	  <select class="cs-select cs-skin-circular">
-  					  <option value="" disabled selected>Select an activity</option>
-  					  <option value="2">2</option>
-  					  <option value="3">3</option>
-  				    <option value="4">4</option>
-  				  </select>
-  			  </div>
+            <select class="cs-select cs-skin-circular">
+              <option value="" disabled selected>Select an activity</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
         </div>
         <br />
         <p><a href="tableau.php" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
       </div>
 
+      <!-- MULTI => CHOIX = CREER OU REJOINDRE   -->
+      <div id="bodyChoix" class="hidden">
+        <p><a class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
+        <p><a class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
+        <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
+      </div>
 
-      <!-- CREATION -->
+      
+      <!-- MULTI => CREATION -->
       <div id="bodyCreer" class="hidden">
         <p><input type="text" placeholder="Nom de la partie" /></p>
         <br />
@@ -73,16 +84,19 @@
         <p><a href="choix.php?ch=1" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
       </div>
 
-      <!-- REJOINDRE -->
+      <!-- MULTI => REJOINDRE -->
       <div id="bodyRejoindre" class="hidden">
         <p>Liste des parties en cours :</p>
       </div>
+
 
       <!-- ATTENTE -->
       <div id="bodyAttente" class="hidden">
 
       </div>
 
+
+      <!-- MULTI => ATTENTE -->
 
     </div>
   </div>
