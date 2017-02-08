@@ -6,35 +6,34 @@ html{
   margin: 0px;
   padding: 0px;
   outline: 0px;
-  height: 100%;
   font-family: Arial, sans-serif;
 }
 body{
   margin: 2% 0;
   padding: 0px;
   outline: 0px;
-  height: 91%;
 }
 .centrer_vert {
   margin: 0 20%;
-  height: 100%;
-  width: 60%;
   background-color: #f5f5f5;
 }
 #header{
   width: 100%;
-  height: 200px;
+  height: 30%;
   margin: 0px;
+}
+#body{
+  height: 100%;
 }
 #banniere{
   height: 100%;
   width: 100%;
 }
-#bodyAccueil{
-  margin-top: 140px;
-}
-#bodyChoix{
-  margin-top: 100px;
+#bodyAccueil,
+#bodyChoix,
+#bodyCreer,
+#bodyRejoindre{
+  padding: 40px 0 80px 0;
 }
 #chxNbJoueur{
   width: 145px;
@@ -49,7 +48,6 @@ body{
 #chxNbJoueur > p{
   color: #b1a9a9;
 }
-
 .visible{
   display: block;
   visibility: visible;
@@ -109,6 +107,55 @@ DEBUT DU CSS DU BOUTON JOUER A L'ACCUEIL
 }
 /*
 FIN DU CSS DU BOUTON JOUER A L'ACCUEIL
+*/
+/*
+DEBUT DU CSS DU BOUTON RETOUR CHOIX
+*/
+.buttonRetour {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px;
+  width: 80px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 2px 6px #505050;
+  border-radius: 4px;
+}
+.buttonRetour:active {
+  background-color: #3e8e41;
+  box-shadow: 1px 3px #505050;
+  transform: translateY(4px);
+}
+.buttonRetour span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.buttonRetour span:after {
+  content: '→';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.buttonRetour:hover span {
+  padding-right: 25px;
+}
+.buttonRetour:hover {
+ background-color: #3e8e41;
+}
+.buttonRetour:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*
+FIN DU CSS DU BOUTON RETOUR CHOIX
 */
 /*
 DEBUT DU CSS DU BOUTON 1

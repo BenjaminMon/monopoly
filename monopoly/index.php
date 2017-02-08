@@ -14,29 +14,68 @@
     <div id="header">
       <img src="Image/bannier.png" id="banniere" alt="bannière" />
     </div>
-    <div id="bodyAccueil" class="visible">
-      <p>
-        <form action="choix.php" method="POST">
+    <div id="body">
+      <div id="bodyAccueil" class="visible">
+        <p>
           <input id="pseudo" type="text" placeholder="Pseudo" />
-          <a href="index.php" class="buttonJoueurAccueil" onclick="ajoutUser()" style="vertical-align:middle"><span>Jouer </span></a>
-        </fom>
-      </p>
+          <p id="boutonSolo" class="buttonJoueurAccueil" style="vertical-align:middle"><span>SOLO </span></p>
+          <p id="boutonSolo" class="buttonJoueurAccueil" onclick="transitionMulti()" style="vertical-align:middle"><span>MULTI </span></p>
+        </p>
+      </div>
+      <div id="bodyChoix" class="hidden">
+        <p><a class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
+        <p><a class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
+        <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
+      </div>
+      <div id="bodyCreer" class="hidden">
+        <p><input type="text" placeholder="Nom de la partie" /></p>
+        <br />
+        <div id="chxNbJoueur">
+          <p>Nombre de joueurs</p>
+          <div id="select">
+        	  <select class="cs-select cs-skin-circular">
+  					  <option value="" disabled selected>Select an activity</option>
+  					  <option value="1">1</option>
+  					  <option value="2">2</option>
+  					  <option value="3">3</option>
+  				    <option value="4">4</option>
+  				  </select>
+  			  </div>
+        </div>
+        <br />
+        <p><a href="choix.php?ch=1" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
+      </div>
+      <div id="bodyRejoindre" class="hidden">
+        <p>Liste des parties en cours :</p>
+      </div>
     </div>
   </div>
   <script>
+    $(document).on('click', '#boutonRetourChoix', function(){
+      $('#bodyAccueil').addClass('visible');
+      $('#bodyAccueil').removeClass('hidden');
+      $('#bodyChoix').addClass('hidden');
+      $('#bodyChoix').removeClass('visible');
+    });
+    $(document).on('click', '#boutonSolo', function(){
+      $('#bodyAccueil').addClass('hidden');
+      $('#bodyAccueil').removeClass('visible');
+      $('#bodyChoix').addClass('visible');
+      $('#bodyChoix').removeClass('hidden');
+      var pseudo = $('#pseudo').val();
+    });
+    $(document).on('click', '#boutonMulti', function(){
+      $('#bodyAccueil').addClass('hidden');
+      $('#bodyAccueil').removeClass('visible');
+      $('#bodyChoix').addClass('visible');
+      $('#bodyChoix').removeClass('hidden');
+      var pseudo = $('#pseudo').val();
+    });
     function ajoutUser(){
-      data = $('#pseudo').val();
       $.ajax({
-        data: 'pseudo='+ data,
+        data: 'pseudo='+ pseudo,
         type: 'get',
-        url : 'php/pseudo.php',
-        dataType : 'json',
-        success : function(data){
-          var id = data[0].joueur_id;
-          var argent = data[0].joueur_argent;
-          var case_courante = data[0].joueur_case_courante;
-          $('#joueurs').html("Joueur "+id+" : "+argent+"€ (case courante = "+case_courante+")");
-        }
+        url : 'php/pseudo.php'
       });
     }
   </script>
