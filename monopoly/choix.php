@@ -63,22 +63,7 @@ if (!isset($_GET['ch'])) {
 
   </div>
   <script src="js/classie.js"></script>
-		<script src="js/selectFx.js"></script>
-		<script>
-			(function() {
-				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {
-					new SelectFx(el, {
-						stickyPlaceholder: false,
-						onChange: function(val){
-							var img = document.createElement('img');
-							img.src = 'img/'+val+'.png';
-							img.onload = function() {
-								document.querySelector('span.cs-placeholder').style.backgroundImage = 'url(img/'+val+'.png)';
-							};
-						}
-					});
-				} );
-			})();
-		</script>
+	<script src="js/selectFx.js"></script>
+  <script src="js/NbJoueurs.js"></script>
 </body>
 </html>
