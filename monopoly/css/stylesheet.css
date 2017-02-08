@@ -33,8 +33,16 @@ body{
 #bodyChoix,
 #bodyCreer,
 #bodyRejoindre,
-#bodySolo{
+#bodySolo,
+#bodyAttente{
   padding: 40px 0 80px 0;
+}
+#tableauAttente,
+#tableauAttente td{
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
 }
 #chxNbJoueur{
   width: 145px;

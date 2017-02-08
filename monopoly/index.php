@@ -21,7 +21,7 @@
     <!-- BODY (wrapper) -->
     <div id="body">
 
-    
+
       <!-- ACCUEIL = SOLO OU MULTI -->
       <div id="bodyAccueil" class="visible">
         <p>
@@ -42,10 +42,10 @@
 
       <!-- SOLO => CHOIX NB IA -->
       <div id="bodySolo" class="hidden">
-        <div id="chxNbJoueur">
+        <div id="chxIA">
           <p>Nombre d'IA</p>
           <div id="select">
-            <select class="cs-select cs-skin-circular">
+            <select id="select1" class="cs-select cs-skin-circular">
               <option value="" disabled selected>Select an activity</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -64,7 +64,7 @@
         <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
 
-      
+
       <!-- MULTI => CREATION -->
       <div id="bodyCreer" class="hidden">
         <p><input type="text" placeholder="Nom de la partie" /></p>
@@ -72,16 +72,16 @@
         <div id="chxNbJoueur">
           <p>Nombre de joueurs</p>
           <div id="select">
-        	  <select class="cs-select cs-skin-circular">
-  					  <option value="" disabled selected>Select an activity</option>
-  					  <option value="2">2</option>
-  					  <option value="3">3</option>
-  				    <option value="4">4</option>
-  				  </select>
+            <select id="select2" class="cs-select cs-skin-circular">
+              <option value="" disabled selected>Select an activity</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
   			  </div>
         </div>
         <br />
-        <p><a href="choix.php?ch=1" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
+        <p><a id="boutonValiderCreer" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
       </div>
 
       <!-- MULTI => REJOINDRE -->
@@ -90,13 +90,28 @@
       </div>
 
 
-      <!-- ATTENTE -->
-      <div id="bodyAttente" class="hidden">
-
-      </div>
-
-
       <!-- MULTI => ATTENTE -->
+      <div id="bodyAttente" class="hidden">
+        <p id="nomPartie">partie1</p>
+        <p id="nbJ">Nombre de joueurs : 3/4</p>
+        <center>
+          <table id="tableauAttente">
+            <tr>
+              <td id="pseudo1">pseudo1</td><td id="boutonPret1"></td><td id="imgCheck1"></td>
+            </tr>
+            <tr>
+              <td id="pseudo2">pseudo2</td><td id="boutonPret2"></td><td id="imgCheck2"></td>
+            </tr>
+            <tr>
+              <td id="pseudo3">pseudo3</td><td id="boutonPret3"></td><td id="imgCheck3"></td>
+            </tr>
+            <tr>
+              <td id="pseudo4">pseudo4</td><td id="boutonPret4"></td><td id="imgCheck4"></td>
+            </tr>
+          </table>
+        </center>
+        <img src="Image/loader.gif" alt="attente"/>
+      </div>
 
     </div>
   </div>
@@ -130,12 +145,17 @@
       $('#bodyCreer').addClass('visible');
       $('#bodyCreer').removeClass('hidden');
     });
-
     $(document).on('click', '#boutonRejoindre', function(){
       $('#bodyChoix').addClass('hidden');
       $('#bodyChoix').removeClass('visible');
       $('#bodyRejoindre').addClass('visible');
       $('#bodyRejoindre').removeClass('hidden');
+    });
+    $(document).on('click', '#boutonValiderCreer', function(){
+      $('#bodyCreer').addClass('hidden');
+      $('#bodyCreer').removeClass('visible');
+      $('#bodyAttente').addClass('visible');
+      $('#bodyAttente').removeClass('hidden');
     });
     function ajoutUser(){
       $.ajax({
