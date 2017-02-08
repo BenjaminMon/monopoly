@@ -49,11 +49,12 @@ body{
 #chxNbJoueur > p{
   color: #b1a9a9;
 }
+
 .visible{
   display: block;
   visibility: visible;
 }
-.visible{
+.hidden{
   display: none;
   visibility: hidden;
 }
