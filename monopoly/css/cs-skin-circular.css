@@ -109,14 +109,9 @@ div.cs-skin-circular {
 	opacity: 0.7;
 }
 
-.cs-skin-circular .cs-options li:first-child { background-image: url(../img/1.png); }
-.cs-skin-circular .cs-options li:nth-child(2) { background-image: url(../img/2.png); }
-.cs-skin-circular .cs-options li:nth-child(3) { background-image: url(../img/3.png); }
-.cs-skin-circular .cs-options li:nth-child(4) { background-image: url(../img/4.png); }
-.cs-skin-circular .cs-options li:nth-child(5) { background-image: url(../img/5.png); }
-.cs-skin-circular .cs-options li:nth-child(6) { background-image: url(../img/6.png); }
-.cs-skin-circular .cs-options li:nth-child(7) { background-image: url(../img/7.png); }
-.cs-skin-circular .cs-options li:nth-child(8) { background-image: url(../img/8.png); }
+.cs-skin-circular .cs-options li:first-child { background-image: url(../img/2.png); }
+.cs-skin-circular .cs-options li:nth-child(2) { background-image: url(../img/3.png); }
+.cs-skin-circular .cs-options li:nth-child(3) { background-image: url(../img/4.png); }
 
 .cs-skin-circular.cs-active .cs-options li:nth-child(1) {
 	transform: translate3d(-140px, -60px, 0);
