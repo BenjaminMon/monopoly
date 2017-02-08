@@ -5,8 +5,10 @@ die("Impossible de se connecter : " . mysql_error());
 mysqli_select_db($link, "monopoly");
 mysqli_set_charset($link, "utf8");
 
+echo $_GET['pseudo'];
+
 $listePC = array();
-$req = mysqli_query($link, 'SELECT * FROM JOUEUR');
+$req = mysqli_query($link, 'INSERT INTO user VALUES (1, '.$_GET['pseudo'].')');
 
 while ($row = mysqli_fetch_array($req, MYSQL_ASSOC)) {
    $listePC[] = ['joueur_id' => $row['joueur_id'], 'joueur_argent' => $row['joueur_argent'], 'joueur_case_courante' => $row['joueur_case_courante']];
