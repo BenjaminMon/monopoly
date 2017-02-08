@@ -14,11 +14,11 @@
     <div id="header">
       <img src="Image/bannier.png" id="banniere" alt="bannière" />
     </div>
-    <div id="bodyAccueil">
+    <div id="bodyAccueil" class="visible">
       <p>
         <form action="choix.php" method="POST">
           <input id="pseudo" type="text" placeholder="Pseudo" />
-          <a href="choix.php" class="buttonJoueurAccueil" onClick="ajoutUser()" style="vertical-align:middle"><span>Jouer </span></a>
+          <a href="index.php" class="buttonJoueurAccueil" onclick="ajoutUser()" style="vertical-align:middle"><span>Jouer </span></a>
         </fom>
       </p>
     </div>
@@ -27,9 +27,9 @@
     function ajoutUser(){
       data = $('#pseudo').val();
       $.ajax({
-        data: 'pseudo' = data,
+        data: 'pseudo='+ data,
         type: 'get',
-        url : 'php/start.php',
+        url : 'php/pseudo.php',
         dataType : 'json',
         success : function(data){
           var id = data[0].joueur_id;

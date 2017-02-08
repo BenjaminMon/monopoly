@@ -33,7 +33,7 @@ body{
 #bodyAccueil{
   margin-top: 140px;
 }
-#body{
+#bodyChoix{
   margin-top: 100px;
 }
 #chxNbJoueur{
@@ -48,6 +48,14 @@ body{
 }
 #chxNbJoueur > p{
   color: #b1a9a9;
+}
+.visible{
+  display: block;
+  visibility: visible;
+}
+.visible{
+  display: none;
+  visibility: hidden;
 }
 /*
 FIN DU CSS DE LA PAGE D'ACCUEIL

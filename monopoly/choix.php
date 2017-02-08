@@ -19,7 +19,7 @@
 if (!isset($_GET['ch'])) {
 ?>
 
-    <div id="body">
+    <div id="bodyChoix">
       <p><a href="choix.php?ch=1" class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
       <p><a href="choix.php?ch=2" class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
     </div>
