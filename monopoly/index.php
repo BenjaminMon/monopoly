@@ -20,7 +20,7 @@
 
     <!-- BODY (wrapper) -->
     <div id="body">
-    
+
       <!-- ACCUEIL -->
       <div id="bodyAccueil" class="visible">
         <p>
@@ -32,8 +32,8 @@
 
       <!-- CHOIX  -->
       <div id="bodyChoix" class="hidden">
-        <p><a class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
-        <p><a class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
+        <p><a id="boutonCreer" class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
+        <p><a id="boutonRejoindre" class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
         <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
 
@@ -50,7 +50,7 @@
   			  </div>
         </div>
         <br />
-        <p><a href="choix.php?ch=1" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
+        <p><a href="tableau.php" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
       </div>
 
 
@@ -79,6 +79,10 @@
       </div>
 
       <!-- ATTENTE -->
+      <div id="bodyAttente" class="hidden">
+
+      </div>
+
 
     </div>
   </div>
@@ -105,6 +109,19 @@
       $('#bodyChoix').addClass('visible');
       $('#bodyChoix').removeClass('hidden');
       var pseudo = $('#pseudo').val();
+    });
+    $(document).on('click', '#boutonCreer', function(){
+      $('#bodyChoix').addClass('hidden');
+      $('#bodyChoix').removeClass('visible');
+      $('#bodyCreer').addClass('visible');
+      $('#bodyCreer').removeClass('hidden');
+    });
+
+    $(document).on('click', '#boutonRejoindre', function(){
+      $('#bodyChoix').addClass('hidden');
+      $('#bodyChoix').removeClass('visible');
+      $('#bodyRejoindre').addClass('visible');
+      $('#bodyRejoindre').removeClass('hidden');
     });
     function ajoutUser(){
       $.ajax({
