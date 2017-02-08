@@ -10,11 +10,18 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
+  <!-- CONTAINER -->
   <div class="text_centrer centrer_vert">
+
+    <!-- HEADER -->
     <div id="header">
       <img src="Image/bannier.png" id="banniere" alt="bannière" />
     </div>
+
+    <!-- BODY (wrapper) -->
     <div id="body">
+    
+      <!-- ACCUEIL -->
       <div id="bodyAccueil" class="visible">
         <p>
           <input id="pseudo" type="text" placeholder="Pseudo" />
@@ -22,11 +29,14 @@
           <p id="boutonMulti" class="buttonJoueurAccueil" style="vertical-align:middle"><span>MULTI </span></p>
         </p>
       </div>
+
+      <!-- CHOIX  -->
       <div id="bodyChoix" class="hidden">
         <p><a class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
         <p><a class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
         <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
+
       <div id="bodySolo" class="hidden">
         <div id="chxNbJoueur">
           <p>Nombre d'IA</p>
@@ -42,6 +52,9 @@
         <br />
         <p><a href="choix.php?ch=1" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
       </div>
+
+
+      <!-- CREATION -->
       <div id="bodyCreer" class="hidden">
         <p><input type="text" placeholder="Nom de la partie" /></p>
         <br />
@@ -59,9 +72,14 @@
         <br />
         <p><a href="choix.php?ch=1" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
       </div>
+
+      <!-- REJOINDRE -->
       <div id="bodyRejoindre" class="hidden">
         <p>Liste des parties en cours :</p>
       </div>
+
+      <!-- ATTENTE -->
+
     </div>
   </div>
   <script src="js/classie.js"></script>
