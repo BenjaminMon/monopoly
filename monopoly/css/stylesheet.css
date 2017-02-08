@@ -1,0 +1,429 @@
+/*
+DEBUT DU CSS DE LA PAGE D'ACCUEIL
+*/
+html{
+  background-image: url("../Image/fond2.jpg");
+  margin: 0px;
+  padding: 0px;
+  outline: 0px;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+body{
+  margin: 2% 0;
+  padding: 0px;
+  outline: 0px;
+  height: 91%;
+}
+.centrer_vert {
+  margin: 0 20%;
+  height: 100%;
+  width: 60%;
+  background-color: #f5f5f5;
+}
+#header{
+  width: 100%;
+  height: 200px;
+  margin: 0px;
+}
+#banniere{
+  height: 100%;
+  width: 100%;
+}
+#bodyAccueil{
+  margin-top: 140px;
+}
+#body{
+  margin-top: 100px;
+}
+#chxNbJoueur{
+  width: 145px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 0px 12px 12px 12px;
+  margin: auto;
+}
+#chxNbJoueur > p{
+  color: #b1a9a9;
+}
+/*
+FIN DU CSS DE LA PAGE D'ACCUEIL
+*/
+/*
+DEBUT DU CSS DU BOUTON JOUER A L'ACCUEIL
+*/
+.buttonJoueurAccueil {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px;
+  width: 100px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 2px 6px #505050;
+  border-radius: 4px;
+}
+.buttonJoueurAccueil:active {
+  background-color: #3e8e41;
+  box-shadow: 1px 3px #505050;
+  transform: translateY(4px);
+}
+.buttonJoueurAccueil span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.buttonJoueurAccueil span:after {
+  content: '→';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.buttonJoueurAccueil:hover span {
+  padding-right: 25px;
+}
+.buttonJoueurAccueil:hover {
+ background-color: #3e8e41;
+}
+.buttonJoueurAccueil:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*
+FIN DU CSS DU BOUTON JOUER A L'ACCUEIL
+*/
+/*
+DEBUT DU CSS DU BOUTON 1
+*/
+.button {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px;
+  width: 200px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 2px 6px #505050;
+  border-radius: 4px;
+}
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 1px 3px #505050;
+  transform: translateY(4px);
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+  content: '→';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover {
+ background-color: #3e8e41;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*
+FIN DU CSS DU BOUTON 1
+*/
+/*
+DEBUT DU CSS DU BOUTON 2
+*/
+.button2 {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px;
+  width: 100px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 2px 6px #505050;
+  border-radius: 4px;
+}
+.button2:active {
+  background-color: #3e8e41;
+  box-shadow: 1px 3px #505050;
+  transform: translateY(4px);
+}
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button2 span:after {
+  content: '→';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button2:hover span {
+  padding-right: 25px;
+}
+.button2:hover {
+ background-color: #3e8e41;
+}
+.button2:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/*
+FIN DU CSS DU BOUTON 2
+*/
+/*
+DEBUT DU CSS DES INPUTS
+*/
+input[type=text] {
+    width: 145px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 300px;
+}
+/*
+FIN DU CSS DES INPUTS
+*/
+/*
+DEBUT DU CSS DU TABLEAU
+*/
+table{
+  border: 3px solid #000;
+  border-collapse: collapse;
+  background-color: #badac2;
+  font-size: 11px;
+}
+td{
+  border: 2px solid #000;
+  width: 60px;
+  height: 60px;
+}
+td:hover{
+  background-color: #cce3c7;
+  box-shadow: 0px 0px 30px #000;
+}
+#titre_centre{
+  vertical-align: middle;
+  text-align: center;
+}
+#titre_centre:hover{
+  box-shadow: 0px 0px;
+  background-color: #badac2;
+}
+.text_centrer{
+  vertical-align: middle;
+  text-align: center;
+}
+.maison1{
+  background-color: #993399;
+  height: 10px;
+}
+.maison1:hover{
+  background-color: #993399;
+  box-shadow: 0px 0px;
+}
+.maison2{
+  background-color: #aaccff;
+  height: 10px;
+}
+.maison2:hover{
+  background-color: #aaccff;
+  box-shadow: 0px 0px;
+}
+.maison3{
+  background-color: #ee44dd;
+  width: 11px;
+}
+.maison3:hover{
+  background-color: #ee44dd;
+  box-shadow: 0px 0px;
+}
+.maison4{
+  background-color: #ff6600;
+  width: 11px;
+}
+.maison4:hover{
+  background-color: #ff6600;
+  box-shadow: 0px 0px;
+}
+.maison5{
+  background-color: #ff0000;
+  height: 10px;
+}
+.maison5:hover{
+  background-color: #ff0000;
+  box-shadow: 0px 0px;
+}
+.maison6{
+  background-color: #ffff00;
+  height: 10px;
+}
+.maison6:hover{
+  background-color: #ffff00;
+  box-shadow: 0px 0px;
+}
+.maison7{
+  background-color: #008000;
+  width: 11px;
+}
+.maison7:hover{
+  background-color: #008000;
+  box-shadow: 0px 0px;
+}
+.maison8{
+  background-color: #3333ff;
+  width: 11px;
+}
+.maison8:hover{
+  background-color: #3333ff;
+  box-shadow: 0px 0px;
+}
+.Lhaut{
+  vertical-align: top;
+  text-align: center;
+}
+.Lbas{
+  vertical-align: bottom;
+  text-align: center;
+}
+.Ldroite{
+  margin: 0;
+  float: right;
+}
+#case_prison{
+  background-color: #f00;
+  height: 10px;
+}
+#carteInfo{
+  width: 90%;
+  height: 90%;
+}
+#info_centre{
+  margin-right: 30%;
+  margin-left: 30%;
+}
+#btnFermerInfo{
+  float: right;
+}
+.caseTrain{
+  height: 50%;
+}
+.rien{
+  margin: 0;
+  padding: 0;
+}
+/*
+FIN DU CSS DU TABLEAU
+*/
+
+/*
+DEBUT DU CSS DES STATS DES JOUEURS
+*/
+#stat{
+  *position: absolute;
+}
+/*
+FIN DU CSS DES STATS DES JOUEUR
+*/
+
+/*
+DEBUT DU CSS DU DE
+*/
+.dice{
+  width: 32px;
+  height: 20px;
+  float: left;
+
+  background: #F5F5F5;
+  border: #999999 1px solid;
+
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+}
+/*
+FIN DU CSS DU DE
+*/
+
+/*
+DEBUT DU CSS DES JOUEURS
+*/
+.relative{
+  position: relative;
+}
+.absolute{
+  position: absolute;
+}
+.joueur1{
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.joueur2{
+  z-index: 1;
+  top: 0;
+  right: 0;
+}
+.joueur3{
+  z-index: 1;
+  top: 35px;
+  right: 0;
+}
+.joueur4{
+  z-index: 1;
+  top: 35px;
+  left: 0;
+}
+.caseNormal{
+  z-index: 0;
+  margin: 0;
+}
+/*
+FIN DU CSS DES JOUEURS
+*/
+/*
+DEBUT DU CSS BOUTON
+*/
+button{
+  border: solid black 3px;
+  background-color: #eeffcc;
+  font-weight: bold;
+}
+/*
+FIN DU CSS BOUTON
+*/
