@@ -11,10 +11,17 @@ die("Impossible de se connecter : " . mysql_error());
 mysqli_select_db($link, "monopoly");
 mysqli_set_charset($link, "utf8");
 
+<<<<<<< HEAD
 addLog($_GET['pseudo']);
 
 $listePC = array();
 mysqli_query($link, 'INSERT INTO user VALUES (1, '.$_GET['pseudo'].')');
+=======
+echo $_GET['pseudo'];
+
+$listePC = array();
+$req = mysqli_query($link, 'INSERT INTO user VALUES (1, '.$_GET['pseudo'].')');
+>>>>>>> refs/remotes/origin/master
 
 /*while ($row = mysqli_fetch_array($req, MYSQL_ASSOC)) {
    $listePC[] = ['joueur_id' => $row['joueur_id'], 'joueur_argent' => $row['joueur_argent'], 'joueur_case_courante' => $row['joueur_case_courante']];

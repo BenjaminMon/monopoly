@@ -16,10 +16,29 @@
     </div>
     <div id="bodyAccueil">
       <p>
-        <input type="text" placeholder="Pseudo" />
-        <a href="choix.php" class="buttonJoueurAccueil" style="vertical-align:middle"><span>Jouer </span></a>
+        <form action="choix.php" method="POST">
+          <input id="pseudo" type="text" placeholder="Pseudo" />
+          <a href="choix.php" class="buttonJoueurAccueil" onClick="ajoutUser()" style="vertical-align:middle"><span>Jouer </span></a>
+        </fom>
       </p>
     </div>
   </div>
+  <script>
+    function ajoutUser(){
+      data = $('#pseudo').val();
+      $.ajax({
+        data: 'pseudo' = data,
+        type: 'get',
+        url : 'php/start.php',
+        dataType : 'json',
+        success : function(data){
+          var id = data[0].joueur_id;
+          var argent = data[0].joueur_argent;
+          var case_courante = data[0].joueur_case_courante;
+          $('#joueurs').html("Joueur "+id+" : "+argent+"€ (case courante = "+case_courante+")");
+        }
+      });
+    }
+  </script>
 </body>
 </html>
