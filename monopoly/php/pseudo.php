@@ -11,7 +11,6 @@ die("Impossible de se connecter : " . mysql_error());
 mysqli_select_db($link, "monopoly");
 mysqli_set_charset($link, "utf8");
 
-$listePC = array();
 $req = mysqli_query($link, 'INSERT INTO user (user_pseudo) VALUES ("'.$_GET['pseudo'].'")');
 
 ?>

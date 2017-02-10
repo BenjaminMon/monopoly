@@ -176,14 +176,12 @@
       $('#bodyAccueil').removeClass('visible');
       $('#bodySolo').addClass('visible');
       $('#bodySolo').removeClass('hidden');
-      var pseudo = $('#pseudo').val();
     });
     $(document).on('click', '#boutonMulti', function(){
       $('#bodyAccueil').addClass('hidden');
       $('#bodyAccueil').removeClass('visible');
       $('#bodyChoix').addClass('visible');
       $('#bodyChoix').removeClass('hidden');
-      var pseudo = $('#pseudo').val();
     });
     $(document).on('click', '#boutonCreer', function(){
       $('#bodyChoix').addClass('hidden');
@@ -204,13 +202,6 @@
       $('#bodyAttente').addClass('visible');
       $('#bodyAttente').removeClass('hidden');
     });
-    function ajoutUser(){
-      $.ajax({
-        data: 'pseudo='+ pseudo,
-        type: 'get',
-        url : 'php/pseudo.php'
-      });
-    }
     $(function(){
       $.ajax({
         url : 'php/listePartie.php?ope=liste',
@@ -236,10 +227,11 @@
       });
     });
     function creerPartie(){
-      var nom = $('');
-      var nbJ = $('');
+      var nom = $('#partie_nom').val();
+      var chef = $('#pseudo').val();
+      var nbJ = $('#select2').val();
       $.ajax({
-        data : 'nom=' + nom + '&nbJ=' + nbJ,
+        data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
         url : 'php/listePartie.php?ope=ajout',
         dataType : 'json',
       });

@@ -36,12 +36,18 @@ if($_GET['ope'] == 'liste'){
 
 if($_GET['ope'] == 'ajout'){
 
-  $listeDesParties = json_decode($_GET['partie']);
+  addLog('pseudo : '.$_GET['pseudo'].' / nom : '.$_GET['nom'].' / nbJ : '.$_GET['nbJ']);
+  addLog('ok');
 
-  $listePartie = array();
-  $req = mysqli_query($link,
+  $req = mysqli_query($link, 'INSERT INTO user (user_pseudo) VALUES ("'.$_GET['pseudo'].'")');
+  $req2 = mysqli_query($link, 'SELECT user_id FROM user WHERE user_pseudo = "'.$_GET['pseudo'].'"');
+  while ($row = mysqli_fetch_array($req2, MYSQL_ASSOC)) {
+     $id = $row['user_id'];
+  }
+  addLog($id);
+  $req3 = mysqli_query($link,
     'INSERT INTO partie (partie_nom, partie_go, partie_nbJoueur, partie_plein)
-    VALUES ("'.$_GET['nom'].'", "'.$_GET['chef'].'", "'.$_GET['nbJ'].'", "'.$_GET['plein'].'")'
+    VALUES ("'.$_GET['nom'].'", '.$id.', "'.$_GET['nbJ'].'", 0)'
   );
 
 }
