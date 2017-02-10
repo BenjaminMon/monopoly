@@ -71,6 +71,9 @@ body{
   display: none;
   visibility: hidden;
 }
+.pNbJ{
+  display: inline-block;
+}
 /*
 FIN DU CSS DE LA PAGE D'ACCUEIL
 */

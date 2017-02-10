@@ -220,7 +220,8 @@
             } else {
               var img = '<img src="Image/rouge.png" alt="plus de place"/>';
             }
-            p = p + '<p>Partie ' + id + ' : ' + nom + ' ' + chef + ' ' + nbJA + '/' + nbJT + ' ' + img + '</p>';
+            p = p + '<p>Partie <span>' + id + '</span> : ' + nom + ' ' + chef + ' <span>' + nbJA + '</span>/' + nbJT + ' ' + img +
+              '<a class="buttonRetour" style="vertical-align:middle" alt="Rejoindre"><span>Rejoindre </span></a></p>';
           }
           $('#listePartie').html(p);
         }
@@ -230,6 +231,25 @@
       var nom = $('#partie_nom').val();
       var chef = $('#pseudo').val();
       var nbJ = $('#select2').val();
+      $.ajax({
+        data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
+        url : 'php/listePartie.php?ope=ajout',
+        dataType : 'json',
+      });
+    }
+    function creerPartie(){
+      var nom = $('#partie_nom').val();
+      var chef = $('#pseudo').val();
+      var nbJ = $('#select2').val();
+      $.ajax({
+        data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
+        url : 'php/listePartie.php?ope=ajout',
+        dataType : 'json',
+      });
+    }
+    function rejoindrePartie(){
+      var partie = $('').val();
+      var joueur = $('#pseudo').val();
       $.ajax({
         data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
         url : 'php/listePartie.php?ope=ajout',
