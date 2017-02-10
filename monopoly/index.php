@@ -49,7 +49,7 @@
       <!-- SOLO => CHOIX NB IA -->
       <div id="bodySolo" class="hidden">
         <div id="ContTitreIndex">
-          <h1 id="titreIndex">Parite solo</h1>
+          <h1 id="titreIndex">Partie solo</h1>
           <hr />
           <br />
         </div>
@@ -66,6 +66,7 @@
         </div>
         <br />
         <p><a href="tableau.php" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
+        <p><a id="boutonRetourSolo" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
 
 
@@ -91,6 +92,7 @@
         </div>
         <br />
         <p><a id="boutonValiderCreer" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
+        <p><a id="boutonRetourCreationMulti" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
 
       <!-- MULTI => REJOINDRE -->
@@ -103,6 +105,7 @@
         <p>Liste des parties en cours :</p>
         <div id="listePartie">
         </div>
+        <p><a id="boutonRetourRejoindre" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
 
 
@@ -140,11 +143,33 @@
 	<script src="js/selectFx.js"></script>
   <script src="js/NbJoueurs.js"></script>
   <script>
+  //Bouton retour de la création de partie solo
+    $(document).on('click', '#boutonRetourSolo', function(){
+      $('#bodyAccueil').addClass('visible');
+      $('#bodyAccueil').removeClass('hidden');
+      $('#bodySolo').addClass('hidden');
+      $('#bodySolo').removeClass('visible');
+    });
+    //Bouton retour de la page de choix multijoueur
     $(document).on('click', '#boutonRetourChoix', function(){
       $('#bodyAccueil').addClass('visible');
       $('#bodyAccueil').removeClass('hidden');
       $('#bodyChoix').addClass('hidden');
       $('#bodyChoix').removeClass('visible');
+    });
+    //Bouton retour de la page de création de partie multijoueur
+    $(document).on('click', '#boutonRetourCreationMulti', function(){
+      $('#bodyChoix').addClass('visible');
+      $('#bodyChoix').removeClass('hidden');
+      $('#bodyCreer').addClass('hidden');
+      $('#bodyCreer').removeClass('visible');
+    });
+    //Bouton retour de la page pour rejoindre une partie multijoueur
+    $(document).on('click', '#boutonRetourRejoindre', function(){
+      $('#bodyChoix').addClass('visible');
+      $('#bodyChoix').removeClass('hidden');
+      $('#bodyRejoindre').addClass('hidden');
+      $('#bodyRejoindre').removeClass('visible');
     });
     $(document).on('click', '#boutonSolo', function(){
       $('#bodyAccueil').addClass('hidden');
