@@ -37,25 +37,13 @@ if($_GET['ope'] == 'liste'){
 if($_GET['ope'] == 'ajout'){
 
   $listeDesParties = json_decode($_GET['partie']);
-  if () {
-    
-  }
-  addLog('liste'.$listeDesParties[0]->partie_nom);
 
   $listePartie = array();
-  $req = mysqli_query($link, 'SELECT partie_id, partie_nom, partie_nbJoueur, partie_plein, partie_go FROM partie');
+  $req = mysqli_query($link,
+    'INSERT INTO partie (partie_nom, partie_go, partie_nbJoueur, partie_plein)
+    VALUES ("'.$_GET['nom'].'", "'.$_GET['chef'].'", "'.$_GET['nbJ'].'", "'.$_GET['plein'].'")'
+  );
 
-  while ($row = mysqli_fetch_array($req, MYSQL_ASSOC)) {
-     $listePartie[] = [
-       'partie_id' => $row['partie_id'],
-       'partie_nom' => $row['partie_nom'],
-       'partie_nbJoueur' => $row['partie_nbJoueur'],
-       'partie_plein' => $row['partie_plein'],
-       'partie_go' => $row['partie_go']
-     ];
-  }
-
-  echo json_encode($listePartie);
 }
 
 ?>

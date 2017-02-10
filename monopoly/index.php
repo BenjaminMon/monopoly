@@ -77,7 +77,7 @@
           <hr />
           <br />
         </div>
-        <p><input type="text" placeholder="Nom de la partie" /></p>
+        <p><input type="text" id="partie_nom" placeholder="Nom de la partie" /></p>
         <br />
         <div id="chxNbJoueur">
           <p>Nombre de joueurs</p>
@@ -236,14 +236,10 @@
       });
     });
     function creerPartie(){
-      var cc = 'P6';
-      test = [
-        {"partie_id":"4","partie_nom":"P4","partie_nbJoueur":"4","partie_plein":"0","user_pseudo":"1"},
-        {"partie_id":"5","partie_nom":"P5","partie_nbJoueur":"2","partie_plein":"1","user_pseudo":"1"},
-        {"partie_id":"6","partie_nom": cc,"partie_nbJoueur":"2","partie_plein":"1","user_pseudo":"1"}
-      ]
+      var nom = $('');
+      var nbJ = $('');
       $.ajax({
-        data : 'partie=' + test,
+        data : 'nom=' + nom + '&nbJ=' + nbJ,
         url : 'php/listePartie.php?ope=ajout',
         dataType : 'json',
       });
