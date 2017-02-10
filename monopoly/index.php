@@ -6,8 +6,9 @@
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
   <link rel="stylesheet" type="text/css" href="css/cs-select.css" />
 	<link rel="stylesheet" type="text/css" href="css/cs-skin-circular.css" />
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
+  <script src="jquery-3.1.1.min"></script>
 </head>
 <body>
   <!-- CONTAINER -->
@@ -22,7 +23,7 @@
     <div id="body">
 
 
-      <!-- ACCUEIL = SOLO OU MULTI -->
+      <!-- ACCUEIL => SOLO OU MULTI -->
       <div id="bodyAccueil" class="visible">
         <p>
           <input id="pseudo" type="text" placeholder="Pseudo" />
@@ -32,8 +33,13 @@
       </div>
 
 
-      <!-- CHOIX  -->
+      <!-- MULTI => CHOIX = CREER OU REJOINDRE   -->
       <div id="bodyChoix" class="hidden">
+        <div id="ContTitreIndex">
+          <h1 id="titreIndex">Partie Multi-joueur</h1>
+          <hr />
+          <br />
+        </div>
         <p><a id="boutonCreer" class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
         <p><a id="boutonRejoindre" class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
         <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
@@ -42,6 +48,11 @@
 
       <!-- SOLO => CHOIX NB IA -->
       <div id="bodySolo" class="hidden">
+        <div id="ContTitreIndex">
+          <h1 id="titreIndex">Parite solo</h1>
+          <hr />
+          <br />
+        </div>
         <div id="chxIA">
           <p>Nombre d'IA</p>
           <div id="select">
@@ -57,16 +68,14 @@
         <p><a href="tableau.php" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
       </div>
 
-      <!-- MULTI => CHOIX = CREER OU REJOINDRE   -->
-      <div id="bodyChoix" class="hidden">
-        <p><a class="button" style="vertical-align:middle"><span>Créer une partie </span></a></p>
-        <p><a class="button" style="vertical-align:middle"><span>Rejoindre une partie </span></a></p>
-        <p><a id="boutonRetourChoix" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
-      </div>
-
 
       <!-- MULTI => CREATION -->
       <div id="bodyCreer" class="hidden">
+        <div id="ContTitreIndex">
+          <h1 id="titreIndex">Partie Multi-joueur</h1>
+          <hr />
+          <br />
+        </div>
         <p><input type="text" placeholder="Nom de la partie" /></p>
         <br />
         <div id="chxNbJoueur">
@@ -86,12 +95,24 @@
 
       <!-- MULTI => REJOINDRE -->
       <div id="bodyRejoindre" class="hidden">
+        <div id="ContTitreIndex">
+          <h1 id="titreIndex">Partie Multi-joueur</h1>
+          <hr />
+          <br />
+        </div>
         <p>Liste des parties en cours :</p>
+        <div id="listePartie">
+        </div>
       </div>
 
 
       <!-- MULTI => ATTENTE -->
       <div id="bodyAttente" class="hidden">
+        <div id="ContTitreIndex">
+          <h1 id="titreIndex">Partie Multi-joueur</h1>
+          <hr />
+          <br />
+        </div>
         <p id="nomPartie">partie1</p>
         <p id="nbJ">Nombre de joueurs : 3/4</p>
         <center>
@@ -152,6 +173,7 @@
       $('#bodyRejoindre').removeClass('hidden');
     });
     $(document).on('click', '#boutonValiderCreer', function(){
+      creerPartie();
       $('#bodyCreer').addClass('hidden');
       $('#bodyCreer').removeClass('visible');
       $('#bodyAttente').addClass('visible');
@@ -162,6 +184,43 @@
         data: 'pseudo='+ pseudo,
         type: 'get',
         url : 'php/pseudo.php'
+      });
+    }
+    $(function(){
+      $.ajax({
+        url : 'php/listePartie.php?ope=liste',
+        dataType : 'json',
+        success : function(data){
+          var p = '';
+          for (part in data) {
+            var id = data[part].partie_id;
+            var nom = data[part].partie_nom;
+            var nbJT = data[part].partie_nbJoueur;
+            var chef = data[part].user_pseudo;
+            var plein = data[part].partie_plein;
+            var nbJA = 1;
+            if (plein == 0){
+              var img = '<img src="Image/vert.png" alt="encore de la place"/>';
+            } else {
+              var img = '<img src="Image/rouge.png" alt="plus de place"/>';
+            }
+            p = p + '<p>Partie ' + id + ' : ' + nom + ' ' + chef + ' ' + nbJA + '/' + nbJT + ' ' + img + '</p>';
+          }
+          $('#listePartie').html(p);
+        }
+      });
+    });
+    function creerPartie(){
+      var cc = 'P6';
+      test = [
+        {"partie_id":"4","partie_nom":"P4","partie_nbJoueur":"4","partie_plein":"0","user_pseudo":"1"},
+        {"partie_id":"5","partie_nom":"P5","partie_nbJoueur":"2","partie_plein":"1","user_pseudo":"1"},
+        {"partie_id":"6","partie_nom": cc,"partie_nbJoueur":"2","partie_plein":"1","user_pseudo":"1"}
+      ]
+      $.ajax({
+        data : 'partie=' + test,
+        url : 'php/listePartie.php?ope=ajout',
+        dataType : 'json',
       });
     }
   </script>
