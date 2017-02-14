@@ -27,7 +27,11 @@
       <div id="bodyAccueil" class="visible">
         <p>
           <input id="pseudo" type="text" placeholder="Pseudo" />
-          <p id="boutonSolo" class="buttonJoueurAccueil" style="vertical-align:middle"><span>SOLO </span></p>
+          <p id="boutonSolo" class="buttonJoueurAccueil" style="vertical-align:middle">
+            <span>
+              SOLO
+            </span>
+          </p>
           <p id="boutonMulti" class="buttonJoueurAccueil" style="vertical-align:middle"><span>MULTI </span></p>
         </p>
       </div>
@@ -124,17 +128,22 @@
               <td id="pseudo1">pseudo1</td><td id="boutonPret1"></td><td id="imgCheck1"></td>
             </tr>
             <tr>
-              <td id="pseudo2">pseudo2</td><td id="boutonPret2"></td><td id="imgCheck2"></td>
+              <td id="pseudo2">joueur 2</td><td id="boutonPret2">
+                <img src="Image/loader.gif" class="load" alt="attente"/>
+              </td><td id="imgCheck2"></td>
             </tr>
             <tr>
-              <td id="pseudo3">pseudo3</td><td id="boutonPret3"></td><td id="imgCheck3"></td>
+              <td id="pseudo3">joueur 3</td><td id="boutonPret3">
+                <img src="Image/loader.gif" class="load" alt="attente"/>
+              </td><td id="imgCheck3"></td>
             </tr>
             <tr>
-              <td id="pseudo4">pseudo4</td><td id="boutonPret4"></td><td id="imgCheck4"></td>
+              <td id="pseudo4">joueur 4</td><td id="boutonPret4">
+                <img src="Image/loader.gif" class="load" alt="attente"/>
+              </td><td id="imgCheck4"></td>
             </tr>
           </table>
         </center>
-        <img src="Image/loader.gif" alt="attente"/>
       </div>
 
     </div>
@@ -220,8 +229,10 @@
             } else {
               var img = '<img src="Image/rouge.png" alt="plus de place"/>';
             }
-            p = p + '<p>Partie <span>' + id + '</span> : ' + nom + ' ' + chef + ' <span>' + nbJA + '</span>/' + nbJT + ' ' + img +
-              '<a class="buttonRetour" style="vertical-align:middle" alt="Rejoindre"><span>Rejoindre </span></a></p>';
+            p = p + '<p><span>Partie <span id="partie' + id + '">' + id + '</span> :</span> <span>' + nom + '</span> <span>' + chef +
+              '</span> <span><span>' + nbJA + '</span>/' + nbJT + '</span> <span>' + img +
+              '</span><a id="btn' + id + '" class="buttonRetour" style="vertical-align:middle" onclick="rejoindre("' +
+              id + '")"><span>Rejoindre </span></a></p>';
           }
           $('#listePartie').html(p);
         }
@@ -237,22 +248,13 @@
         dataType : 'json',
       });
     }
-    function creerPartie(){
-      var nom = $('#partie_nom').val();
-      var chef = $('#pseudo').val();
-      var nbJ = $('#select2').val();
-      $.ajax({
-        data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
-        url : 'php/listePartie.php?ope=ajout',
-        dataType : 'json',
-      });
-    }
-    function rejoindrePartie(){
-      var partie = $('').val();
+    function rejoindrePartie(id){
+
+      var partie = id;
       var joueur = $('#pseudo').val();
       $.ajax({
-        data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
-        url : 'php/listePartie.php?ope=ajout',
+        data : 'partie=' + partie + '&joueur=' + joueur,
+        url : 'php/listePartie.php?ope=rejoindre',
         dataType : 'json',
       });
     }

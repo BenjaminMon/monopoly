@@ -74,6 +74,10 @@ body{
 .pNbJ{
   display: inline-block;
 }
+.load{
+  width: 40%;
+  height: 40%;
+}
 /*
 FIN DU CSS DE LA PAGE D'ACCUEIL
 */
