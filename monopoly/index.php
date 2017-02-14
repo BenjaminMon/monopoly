@@ -274,7 +274,7 @@
     function rejoindrePartie(){
       // console.log(this); 
       var id = $(this).attr("id").split("btn");
-      console.log(id);
+      // console.log(id);
       var partie = id[1];
       var joueur = $('#pseudo').val();
       
@@ -289,10 +289,10 @@
       $('#bodyRejoindre').removeClass('visible');
       $('#bodyAttente').addClass('visible');
       $('#bodyAttente').removeClass('hidden');
-
-
     }
+
     $(document).on("click", ".buttonRejoindre", rejoindrePartie);
+
   </script>
 </body>
 </html>
