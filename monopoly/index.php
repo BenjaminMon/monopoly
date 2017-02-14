@@ -180,30 +180,35 @@
       $('#bodyRejoindre').addClass('hidden');
       $('#bodyRejoindre').removeClass('visible');
     });
+    //Bouton Solo de la page d'accueil
     $(document).on('click', '#boutonSolo', function(){
       $('#bodyAccueil').addClass('hidden');
       $('#bodyAccueil').removeClass('visible');
       $('#bodySolo').addClass('visible');
       $('#bodySolo').removeClass('hidden');
     });
+    //Bouton multi de la page d'accueil
     $(document).on('click', '#boutonMulti', function(){
       $('#bodyAccueil').addClass('hidden');
       $('#bodyAccueil').removeClass('visible');
       $('#bodyChoix').addClass('visible');
       $('#bodyChoix').removeClass('hidden');
     });
+    //Bouton créer une partie multijoueur
     $(document).on('click', '#boutonCreer', function(){
       $('#bodyChoix').addClass('hidden');
       $('#bodyChoix').removeClass('visible');
       $('#bodyCreer').addClass('visible');
       $('#bodyCreer').removeClass('hidden');
     });
+    //Bouton rejoindre une partie multijoueur
     $(document).on('click', '#boutonRejoindre', function(){
       $('#bodyChoix').addClass('hidden');
       $('#bodyChoix').removeClass('visible');
       $('#bodyRejoindre').addClass('visible');
       $('#bodyRejoindre').removeClass('hidden');
     });
+    //Bouton validation de la création de la partie multijoueur
     $(document).on('click', '#boutonValiderCreer', function(){
       creerPartie();
       $('#bodyCreer').addClass('hidden');
