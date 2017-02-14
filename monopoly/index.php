@@ -23,7 +23,12 @@
     <div id="body">
 
 
+
       <!-- ACCUEIL => SOLO OU MULTI -->
+
+    
+      <!-- ACCUEIL -->
+
       <div id="bodyAccueil" class="visible">
         <p>
           <input id="pseudo" type="text" placeholder="Pseudo" />
@@ -37,7 +42,11 @@
       </div>
 
 
+
       <!-- MULTI => CHOIX = CREER OU REJOINDRE   -->
+
+      <!-- CHOIX  -->
+
       <div id="bodyChoix" class="hidden">
         <div id="ContTitreIndex">
           <h1 id="titreIndex">Partie Multi-joueur</h1>
@@ -75,6 +84,9 @@
 
 
       <!-- MULTI => CREATION -->
+
+      <!-- CREATION -->
+
       <div id="bodyCreer" class="hidden">
         <div id="ContTitreIndex">
           <h1 id="titreIndex">Partie Multi-joueur</h1>
@@ -100,6 +112,9 @@
       </div>
 
       <!-- MULTI => REJOINDRE -->
+
+      <!-- REJOINDRE -->
+
       <div id="bodyRejoindre" class="hidden">
         <div id="ContTitreIndex">
           <h1 id="titreIndex">Partie Multi-joueur</h1>
@@ -111,6 +126,7 @@
         </div>
         <p><a id="boutonRetourRejoindre" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
+
 
 
       <!-- MULTI => ATTENTE -->
@@ -145,6 +161,9 @@
           </table>
         </center>
       </div>
+
+      <!-- ATTENTE -->
+
 
     </div>
   </div>
