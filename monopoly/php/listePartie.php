@@ -58,4 +58,20 @@ if($_GET['ope'] == 'ajout'){
   );
 }
 
+if($_GET['ope'] == 'rejoindre'){
+
+  $req = mysqli_query($link, 'INSERT INTO user (user_pseudo) VALUES ("'.$_GET['joueur'].'")');
+  $req2 = mysqli_query($link, 'SELECT user_id FROM user WHERE user_pseudo = "'.$_GET['joueur'].'"');
+  while ($row = mysqli_fetch_array($req2, MYSQL_ASSOC)) {
+     $id = $row['user_id'];
+  }
+
+  $req5 = mysqli_query($link,
+    'INSERT INTO groupe (partie_id, joueur_id)
+    VALUES ('.$_GET['partie'].', '.$id.')'
+  );
+
+}
+
+
 ?>

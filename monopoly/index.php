@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html>
 <head>
   <meta charset="utf-8">
   <title>Jeu Monopoly</title>
@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/cs-skin-circular.css" />
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!--<script src="jquery-3.1.1.min"></script>-->
 </head>
 <body>
   <!-- CONTAINER -->
@@ -230,8 +231,7 @@
             }
             p = p + '<p><span>Partie <span id="partie' + id + '">' + id + '</span> :</span> <span>' + nom + '</span> <span>' + chef +
               '</span> <span><span>' + nbJA + '</span>/' + nbJT + '</span> <span>' + img +
-              '</span><a id="btn' + id + '" class="buttonRetour" style="vertical-align:middle" onclick="rejoindre("' +
-              id + '")"><span>Rejoindre </span></a></p>';
+              '</span><a id="btn' + id + '" class="buttonRejoindre" style="vertical-align:middle" ><span>Rejoindre </span></a></p>';
           }
           $('#listePartie').html(p);
         }
@@ -247,16 +247,28 @@
         dataType : 'json',
       });
     }
-    function rejoindrePartie(id){
-
-      var partie = id;
+    function rejoindrePartie(){
+      // console.log(this); 
+      var id = $(this).attr("id").split("btn");
+      console.log(id);
+      var partie = id[1];
       var joueur = $('#pseudo').val();
+      
       $.ajax({
         data : 'partie=' + partie + '&joueur=' + joueur,
         url : 'php/listePartie.php?ope=rejoindre',
-        dataType : 'json',
+        dataType : 'json'
+
       });
+    
+      $('#bodyRejoindre').addClass('hidden');
+      $('#bodyRejoindre').removeClass('visible');
+      $('#bodyAttente').addClass('visible');
+      $('#bodyAttente').removeClass('hidden');
+
+
     }
+    $(document).on("click", ".buttonRejoindre", rejoindrePartie);
   </script>
 </body>
 </html>
