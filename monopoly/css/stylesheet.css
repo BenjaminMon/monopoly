@@ -152,7 +152,7 @@ DEBUT DU CSS DU BOUTON RETOUR CHOIX
   box-shadow: 1px 3px #505050;
   transform: translateY(4px);
 }
-.buttonRetour span {
+.buttonRetour span{
   cursor: pointer;
   display: inline-block;
   position: relative;
@@ -173,6 +173,53 @@ DEBUT DU CSS DU BOUTON RETOUR CHOIX
  background-color: #3e8e41;
 }
 .buttonRetour:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*
+DEBUT DU CSS DU BOUTON REJOINDRE
+*/
+.buttonRejoindre {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  padding: 15px;
+  width: 80px;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 2px 6px #505050;
+  border-radius: 4px;
+}
+.buttonRejoindre:active {
+  background-color: #3e8e41;
+  box-shadow: 1px 3px #505050;
+  transform: translateY(4px);
+}
+.buttonRejoindre span{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.buttonRejoindre span:after {
+  content: '→';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.buttonRejoindre:hover span {
+  padding-right: 25px;
+}
+.buttonRejoindre:hover {
+ background-color: #3e8e41;
+}
+.buttonRejoindre:hover span:after {
   opacity: 1;
   right: 0;
 }
