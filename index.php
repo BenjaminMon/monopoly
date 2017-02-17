@@ -26,7 +26,7 @@
 
       <!-- ACCUEIL => SOLO OU MULTI -->
 
-    
+
       <!-- ACCUEIL -->
 
       <div id="bodyAccueil" class="visible">
@@ -141,20 +141,20 @@
         <center>
           <table id="tableauAttente">
             <tr>
-              <td id="pseudo1">pseudo1</td><td id="boutonPret1"></td><td id="imgCheck1"></td>
+              <td id="pseudo1"></td><td id="boutonPret1"></td><td id="imgCheck1"></td>
             </tr>
             <tr>
-              <td id="pseudo2">joueur 2</td><td id="boutonPret2">
+              <td id="pseudo2"></td><td id="boutonPret2">
                 <img src="Image/loader.gif" class="load" alt="attente"/>
               </td><td id="imgCheck2"></td>
             </tr>
             <tr>
-              <td id="pseudo3">joueur 3</td><td id="boutonPret3">
+              <td id="pseudo3"></td><td id="boutonPret3">
                 <img src="Image/loader.gif" class="load" alt="attente"/>
               </td><td id="imgCheck3"></td>
             </tr>
             <tr>
-              <td id="pseudo4">joueur 4</td><td id="boutonPret4">
+              <td id="pseudo4"></td><td id="boutonPret4">
                 <img src="Image/loader.gif" class="load" alt="attente"/>
               </td><td id="imgCheck4"></td>
             </tr>
@@ -234,6 +234,7 @@
       $('#bodyCreer').removeClass('visible');
       $('#bodyAttente').addClass('visible');
       $('#bodyAttente').removeClass('hidden');
+      ajoutJoueurcourant();
     });
     $(function(){
       $.ajax({
@@ -272,19 +273,19 @@
       });
     }
     function rejoindrePartie(){
-      // console.log(this); 
+      // console.log(this);
       var id = $(this).attr("id").split("btn");
       // console.log(id);
       var partie = id[1];
       var joueur = $('#pseudo').val();
-      
+
       $.ajax({
         data : 'partie=' + partie + '&joueur=' + joueur,
         url : 'php/listePartie.php?ope=rejoindre',
         dataType : 'json'
 
       });
-    
+
       $('#bodyRejoindre').addClass('hidden');
       $('#bodyRejoindre').removeClass('visible');
       $('#bodyAttente').addClass('visible');
@@ -292,6 +293,16 @@
     }
 
     $(document).on("click", ".buttonRejoindre", rejoindrePartie);
+
+    function ajoutJoueurcourant(){
+      var joueur = $('#pseudo').val();
+      $('#pseudo1').html('<p>' + joueur + '</p>');
+      $.ajax({
+        data : 'partie=' + partie + '&joueur=' + joueur,
+        url : 'php/listePartie.php?ope=rejoindre',
+        dataType : 'json',
+      });
+    }
 
   </script>
 </body>
