@@ -227,6 +227,14 @@
       $('#bodyRejoindre').addClass('visible');
       $('#bodyRejoindre').removeClass('hidden');
     });
+    $(document).on("click", ".buttonRejoindre", function(){
+      $('#bodyRejoindre').addClass('hidden');
+      $('#bodyRejoindre').removeClass('visible');
+      $('#bodyAttente').addClass('visible');
+      $('#bodyAttente').removeClass('hidden');
+      rejoindrePartie()
+      ajoutJoueurChef();
+    });
     //Bouton validation de la création de la partie multijoueur
     $(document).on('click', '#boutonValiderCreer', function(){
       creerPartie();
@@ -234,7 +242,7 @@
       $('#bodyCreer').removeClass('visible');
       $('#bodyAttente').addClass('visible');
       $('#bodyAttente').removeClass('hidden');
-      ajoutJoueurcourant();
+      ajoutJoueurChef();
     });
     $(function(){
       $.ajax({
@@ -278,23 +286,14 @@
       // console.log(id);
       var partie = id[1];
       var joueur = $('#pseudo').val();
-
       $.ajax({
         data : 'partie=' + partie + '&joueur=' + joueur,
         url : 'php/listePartie.php?ope=rejoindre',
         dataType : 'json'
-
       });
-
-      $('#bodyRejoindre').addClass('hidden');
-      $('#bodyRejoindre').removeClass('visible');
-      $('#bodyAttente').addClass('visible');
-      $('#bodyAttente').removeClass('hidden');
     }
 
-    $(document).on("click", ".buttonRejoindre", rejoindrePartie);
-
-    function ajoutJoueurcourant(){
+    function ajoutJoueurChef(){
       var joueur = $('#pseudo').val();
       $('#pseudo1').html('<p>' + joueur + '</p>');
       $.ajax({

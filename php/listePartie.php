@@ -53,8 +53,8 @@ if($_GET['ope'] == 'ajout'){
      $idPart = $row['partie_id'];
   }
   $req5 = mysqli_query($link,
-    'INSERT INTO groupe (partie_id, joueur_id)
-    VALUES ('.$idPart.', '.$id.')'
+    'INSERT INTO groupe (partie_id, joueur_id, groupe_chef)
+    VALUES ('.$idPart.', '.$id.', 1)'
   );
 }
 
@@ -67,8 +67,8 @@ if($_GET['ope'] == 'rejoindre'){
   }
 
   $req5 = mysqli_query($link,
-    'INSERT INTO groupe (partie_id, joueur_id)
-    VALUES ('.$_GET['partie'].', '.$id.')'
+    'INSERT INTO groupe (partie_id, joueur_id, groupe_chef)
+    VALUES ('.$_GET['partie'].', '.$id.', 0)'
   );
 
 }
