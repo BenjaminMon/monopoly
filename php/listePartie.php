@@ -56,6 +56,11 @@ if($_GET['ope'] == 'ajout'){
     'INSERT INTO groupe (partie_id, joueur_id, groupe_chef)
     VALUES ('.$idPart.', '.$id.', 1)'
   );
+
+  $partie_id = ['partie_id' => $idPart];
+
+  $test = json_encode($partie_id);
+  echo $test;
 }
 
 if($_GET['ope'] == 'rejoindre'){
@@ -67,11 +72,36 @@ if($_GET['ope'] == 'rejoindre'){
   }
 
   $req5 = mysqli_query($link,
-    'INSERT INTO groupe (partie_id, joueur_id, groupe_chef)
-    VALUES ('.$_GET['partie'].', '.$id.', 0)'
+    'INSERT INTO groupe (partie_id, joueur_id)
+    VALUES ('.$_GET['partie'].', '.$id.')'
   );
 
 }
 
+if($_GET['ope'] == 'getChefPartie'){
+
+  $req = mysqli_query($link, 'SELECT user_pseudo FROM groupe g
+  INNER JOIN user u ON g.joueur_id = u.user_id
+  WHERE groupe_chef = 1 AND g.partie_id = "'.$_GET['partie'].'"');
+  while ($row = mysqli_fetch_array($req, MYSQL_ASSOC)) {
+   $pseudo = ['user_pseudo' => $row['user_pseudo']];
+  }
+  $test = json_encode($pseudo);
+  echo $test;
+}
+
+if($_GET['ope'] == 'getParticipantPartie'){
+
+  addLog($_GET['partie']);
+
+  $req = mysqli_query($link, 'SELECT user_pseudo FROM groupe g
+  INNER JOIN user u ON g.joueur_id = u.user_id
+  WHERE groupe_chef = 0 AND g.partie_id = "'.$_GET['partie'].'"');
+  while ($row = mysqli_fetch_array($req, MYSQL_ASSOC)) {
+   $pseudo[] = ['user_pseudo' => utf8_encode($row['user_pseudo'])];
+  }
+  $test = json_encode($pseudo);
+  echo $test;
+}
 
 ?>

@@ -78,7 +78,7 @@
           </div>
         </div>
         <br />
-        <p><a href="tableau.php" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
+        <p><a id="boutonValiderSolo" class="button2" style="vertical-align:middle"><span>Valider </span></a></p>
         <p><a id="boutonRetourSolo" class="buttonRetour" style="vertical-align:middle"><span>Retour </span></a></p>
       </div>
 
@@ -141,22 +141,24 @@
         <center>
           <table id="tableauAttente">
             <tr>
-              <td id="pseudo1"></td><td id="boutonPret1"></td><td id="imgCheck1"></td>
+              <td id="pseudo1"></td>
+              <td id="boutonPret1"><input type="button" value="Prêt" disabled="disabled"/></td>
+              <td id="imgCheck1"></td>
             </tr>
             <tr>
-              <td id="pseudo2"></td><td id="boutonPret2">
-                <img src="Image/loader.gif" class="load" alt="attente"/>
-              </td><td id="imgCheck2"></td>
+              <td id="pseudo2" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
+              <td id="boutonPret2"></td>
+              <td id="imgCheck2"></td>
             </tr>
             <tr>
-              <td id="pseudo3"></td><td id="boutonPret3">
-                <img src="Image/loader.gif" class="load" alt="attente"/>
-              </td><td id="imgCheck3"></td>
+              <td id="pseudo3" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
+              <td id="boutonPret3"></td>
+              <td id="imgCheck3"></td>
             </tr>
             <tr>
-              <td id="pseudo4"></td><td id="boutonPret4">
-                <img src="Image/loader.gif" class="load" alt="attente"/>
-              </td><td id="imgCheck4"></td>
+              <td id="pseudo4" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
+              <td id="boutonPret4"></td>
+              <td id="imgCheck4"></td>
             </tr>
           </table>
         </center>
@@ -201,17 +203,27 @@
     });
     //Bouton Solo de la page d'accueil
     $(document).on('click', '#boutonSolo', function(){
-      $('#bodyAccueil').addClass('hidden');
-      $('#bodyAccueil').removeClass('visible');
-      $('#bodySolo').addClass('visible');
-      $('#bodySolo').removeClass('hidden');
+      if( $('#pseudo').val() != ""){
+        $('#bodyAccueil').addClass('hidden');
+        $('#bodyAccueil').removeClass('visible');
+        $('#bodySolo').addClass('visible');
+        $('#bodySolo').removeClass('hidden');
+      } else {
+        $('#pseudo').css("border-color","#ff4141");
+        setTimeout(function(){ $('#pseudo').css("border-color","#cccccc"); }, 1000);
+      }
     });
     //Bouton multi de la page d'accueil
     $(document).on('click', '#boutonMulti', function(){
-      $('#bodyAccueil').addClass('hidden');
-      $('#bodyAccueil').removeClass('visible');
-      $('#bodyChoix').addClass('visible');
-      $('#bodyChoix').removeClass('hidden');
+      if( $('#pseudo').val() != ""){
+        $('#bodyAccueil').addClass('hidden');
+        $('#bodyAccueil').removeClass('visible');
+        $('#bodyChoix').addClass('visible');
+        $('#bodyChoix').removeClass('hidden');
+      } else {
+        $('#pseudo').css("border-color","#ff4141");
+        setTimeout(function(){ $('#pseudo').css("border-color","#cccccc"); }, 1000);
+      }
     });
     //Bouton créer une partie multijoueur
     $(document).on('click', '#boutonCreer', function(){
@@ -227,49 +239,86 @@
       $('#bodyRejoindre').addClass('visible');
       $('#bodyRejoindre').removeClass('hidden');
     });
-    $(document).on("click", ".buttonRejoindre", function(){
+    function rejPartie(id){
       $('#bodyRejoindre').addClass('hidden');
       $('#bodyRejoindre').removeClass('visible');
       $('#bodyAttente').addClass('visible');
       $('#bodyAttente').removeClass('hidden');
-      rejoindrePartie()
-      ajoutJoueurChef();
-    });
+      rejoindrePartie(id);
+    }
     //Bouton validation de la création de la partie multijoueur
     $(document).on('click', '#boutonValiderCreer', function(){
-      creerPartie();
-      $('#bodyCreer').addClass('hidden');
-      $('#bodyCreer').removeClass('visible');
-      $('#bodyAttente').addClass('visible');
-      $('#bodyAttente').removeClass('hidden');
-      ajoutJoueurChef();
+      if($('#partie_nom').val() != "" && $('#select2').val() != null){
+        creerPartie();
+        $('#bodyCreer').addClass('hidden');
+        $('#bodyCreer').removeClass('visible');
+        $('#bodyAttente').addClass('visible');
+        $('#bodyAttente').removeClass('hidden');
+      } else if($('#partie_nom').val() == "" && $('#select2').val() == null){
+        $('#partie_nom').css("border-color","#ff4141");
+        setTimeout(function(){ $('#partie_nom').css("border-color","#cccccc"); }, 1000);
+        $('#chxNbJoueur').css("border-color","#ff4141");
+        setTimeout(function(){ $('#chxNbJoueur').css("border-color","#cccccc"); }, 1000);
+      } else if($('#partie_nom').val() == ""){
+        $('#partie_nom').css("border-color","#ff4141");
+        setTimeout(function(){ $('#partie_nom').css("border-color","#cccccc"); }, 1000);
+      } else if($('#select2').val() == null){
+        $('#chxNbJoueur').css("border-color","#ff4141");
+        setTimeout(function(){ $('#chxNbJoueur').css("border-color","#cccccc"); }, 1000);
+      }
     });
-    $(function(){
-      $.ajax({
-        url : 'php/listePartie.php?ope=liste',
-        dataType : 'json',
-        success : function(data){
-          var p = '';
-          for (part in data) {
-            var id = data[part].partie_id;
-            var nom = data[part].partie_nom;
-            var nbJT = data[part].partie_nbJoueur;
-            var chef = data[part].user_pseudo;
-            var plein = data[part].partie_plein;
-            var nbJA = 1;
-            if (plein == 0){
-              var img = '<img src="Image/vert.png" alt="encore de la place"/>';
-            } else {
-              var img = '<img src="Image/rouge.png" alt="plus de place"/>';
+    //Bouton validation de la création de la partie solo
+    $(document).on('click', '#boutonValiderSolo', function(){
+      if($('#partie_nom').val() != "" && $('#select2').val() != null){
+        $('#boutonValiderSolo').attr('href',"tableau.php");
+        $('#bodyCreer').addClass('hidden');
+        $('#bodyCreer').removeClass('visible');
+        $('#bodyAttente').addClass('visible');
+        $('#bodyAttente').removeClass('hidden');
+      } else if($('#partie_nom').val() == "" && $('#select').val() == null){
+        $('#partie_nom').css("border-color","#ff4141");
+        setTimeout(function(){ $('#partie_nom').css("border-color","#cccccc"); }, 1000);
+        $('#chxIA').css("border-color","#ff4141");
+        setTimeout(function(){ $('#chxNbJoueur').css("border-color","#cccccc"); }, 1000);
+      } else if($('#partie_nom').val() == ""){
+        $('#partie_nom').css("border-color","#ff4141");
+        setTimeout(function(){ $('#partie_nom').css("border-color","#cccccc"); }, 1000);
+      } else if($('#select').val() == null){
+        $('#chxIA').css("border-color","#ff4141");
+        setTimeout(function(){ $('#chxNbJoueur').css("border-color","#cccccc"); }, 1000);
+      }
+    });
+    //$(function(){
+      setTimeout(
+        function(){
+          $.ajax({
+            url : 'php/listePartie.php?ope=liste',
+            dataType : 'json',
+            success : function(data){
+              var p = '';
+              for (part in data) {
+                var id = data[part].partie_id;
+                var nom = data[part].partie_nom;
+                var nbJT = data[part].partie_nbJoueur;
+                var chef = data[part].user_pseudo;
+                var plein = data[part].partie_plein;
+                var nbJA = 1;
+                if (plein == 0){
+                  var img = '<img src="Image/vert.png" alt="encore de la place"/>';
+                } else {
+                  var img = '<img src="Image/rouge.png" alt="plus de place"/>';
+                }
+                p = p + '<p><span>Partie <span id="partie' + id + '">' + id + '</span> :</span> <span>' + nom + '</span> <span>' + chef +
+                  '</span> <span><span>' + nbJA + '</span>/' + nbJT + '</span> <span>' + img +
+                  '</span><a id="btn' + id + '" class="buttonRejoindre" style="vertical-align:middle" >' +
+                  '<span onclick="rejPartie(' + id + ')">Rejoindre </span></a></p>';
+              }
+              $('#listePartie').html(p);
             }
-            p = p + '<p><span>Partie <span id="partie' + id + '">' + id + '</span> :</span> <span>' + nom + '</span> <span>' + chef +
-              '</span> <span><span>' + nbJA + '</span>/' + nbJT + '</span> <span>' + img +
-              '</span><a id="btn' + id + '" class="buttonRejoindre" style="vertical-align:middle" ><span>Rejoindre </span></a></p>';
-          }
-          $('#listePartie').html(p);
-        }
-      });
-    });
+          })
+        }, 500
+      );
+    //});
     function creerPartie(){
       var nom = $('#partie_nom').val();
       var chef = $('#pseudo').val();
@@ -278,28 +327,52 @@
         data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
         url : 'php/listePartie.php?ope=ajout',
         dataType : 'json',
+        success : function(data){
+          afficheJoueurChef(data['partie_id']);
+          afficheJoueurParticipants(data['partie_id']);
+        }
       });
     }
-    function rejoindrePartie(){
-      // console.log(this);
-      var id = $(this).attr("id").split("btn");
-      // console.log(id);
-      var partie = id[1];
+    function rejoindrePartie(id){
       var joueur = $('#pseudo').val();
       $.ajax({
-        data : 'partie=' + partie + '&joueur=' + joueur,
+        data : 'partie=' + id + '&joueur=' + joueur,
         url : 'php/listePartie.php?ope=rejoindre',
         dataType : 'json'
       });
+      afficheJoueurChef(id);
+      afficheJoueurParticipants(id);
     }
 
-    function ajoutJoueurChef(){
-      var joueur = $('#pseudo').val();
-      $('#pseudo1').html('<p>' + joueur + '</p>');
+    function afficheJoueurChef(partie){
       $.ajax({
-        data : 'partie=' + partie + '&joueur=' + joueur,
-        url : 'php/listePartie.php?ope=rejoindre',
+        data : 'partie=' + partie,
+        url : 'php/listePartie.php?ope=getChefPartie',
         dataType : 'json',
+        success : function(data){
+          $('#pseudo1').html('<p>' + data['user_pseudo'] + '</p>');
+        }
+      });
+    }
+    function afficheJoueurParticipants(partie){
+      $.ajax({
+        data : 'partie=' + partie,
+        url : 'php/listePartie.php?ope=getParticipantPartie',
+        dataType : 'json',
+        success : function(data){
+          var i = 0;
+          alert(data);
+          setTimeout(function(){
+            for(part in data){
+              alert(data['user_pseudo']);
+              $('.listePseudo:eq(' + i + ')').html('<p>' + data['user_pseudo'] + '</p>');
+              i++;
+            }
+          }, 100);
+        },
+        error: function (error) {
+          alert(error[0]);
+        }
       });
     }
 
