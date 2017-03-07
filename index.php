@@ -147,17 +147,17 @@
             </tr>
             <tr>
               <td id="pseudo2" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
-              <td id="boutonPret2"></td>
+              <td id="boutonPret2" class="btnpret"></td>
               <td id="imgCheck2"></td>
             </tr>
             <tr>
               <td id="pseudo3" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
-              <td id="boutonPret3"></td>
+              <td id="boutonPret3" class="btnpret"></td>
               <td id="imgCheck3"></td>
             </tr>
             <tr>
               <td id="pseudo4" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
-              <td id="boutonPret4"></td>
+              <td id="boutonPret4" class="btnpret"></td>
               <td id="imgCheck4"></td>
             </tr>
           </table>
@@ -169,6 +169,7 @@
 
     </div>
   </div>
+
   <script src="js/classie.js"></script>
 	<script src="js/selectFx.js"></script>
   <script src="js/NbJoueurs.js"></script>
@@ -288,6 +289,9 @@
         setTimeout(function(){ $('#chxNbJoueur').css("border-color","#cccccc"); }, 1000);
       }
     });
+
+    var partie_id;
+
     //$(function(){
       setTimeout(
         function(){
@@ -323,15 +327,17 @@
       var nom = $('#partie_nom').val();
       var chef = $('#pseudo').val();
       var nbJ = $('#select2').val();
+      //var partie_id;
       $.ajax({
         data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
         url : 'php/listePartie.php?ope=ajout',
         dataType : 'json',
         success : function(data){
           afficheJoueurChef(data['partie_id']);
-          afficheJoueurParticipants(data['partie_id']);
+          partie_id = data['partie_id'];
         }
       });
+      //afficheJoueurParticipants(partie_id);
     }
     function rejoindrePartie(id){
       var joueur = $('#pseudo').val();
@@ -341,7 +347,11 @@
         dataType : 'json'
       });
       afficheJoueurChef(id);
-      afficheJoueurParticipants(id);
+      partie_id = id;
+      /*setTimeout(function(){
+        alert('coucou');
+        afficheJoueurParticipants(id);
+      }, 2000);*/
     }
 
     function afficheJoueurChef(partie){
@@ -355,27 +365,28 @@
       });
     }
     function afficheJoueurParticipants(partie){
-      $.ajax({
-        data : 'partie=' + partie,
-        url : 'php/listePartie.php?ope=getParticipantPartie',
-        dataType : 'json',
-        success : function(data){
-          var i = 0;
-          alert(data);
-          setTimeout(function(){
+        $.ajax({
+          data : 'partie=' + partie,
+          url : 'php/listePartie.php?ope=getParticipantPartie',
+          dataType : 'json',
+          success : function(data){
+            var i = 0;
             for(part in data){
-              alert(part);
-              $('.listePseudo:eq(' + i + ')').html('<p>' + data['user_pseudo'] + '</p>');
+              $('.listePseudo:eq(' + i + ')').html('<p>' + data[part].user_pseudo + '</p>');
+              $('.btnpret:eq(' + i + ')').html('<input type="button" value="Prêt" disabled="disabled"/>');
               i++;
             }
-          }, 100);
-        },
-        error: function (error) {
-          console.log(error);
-        }
-      });
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });
     }
-
+    setInterval(function(){
+      if(partie_id != undefined){
+        afficheJoueurParticipants(partie_id);
+      }
+    }, 2000);
   </script>
 </body>
 </html>
