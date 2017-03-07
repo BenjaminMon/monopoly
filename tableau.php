@@ -316,13 +316,19 @@
   <div id="dice1" class="dice"><p>0</p></div>
   <div id="dice2" class="dice"><p>0</p></div>
   <input type="button"  id="roll" name="roll" value="Let's Roll !" />
+  <input type="button" id="passer" name=""
+
+  <script src="js/gestionTour.js"></script>
   <script>
+
     function showRand(){
       var random1 = Math.floor(Math.random() * 6 + 1);
       var random2 = Math.floor(Math.random() * 6 + 1);
       $("#dice1").text(random1);
       $("#dice2").text(random2);
+
     }
+
     function setIntervals(callback, delay, repetitions){
       var a = 0;
       var intervalID = setInterval(function(){
@@ -331,12 +337,18 @@
           clearInterval(intervalID);
           $("dice1").text(Math.floor(Math.random() * 6 + 1));
           $("dice2").text(Math.floor(Math.random() * 6 + 1));
+          deplacer_joueur(recuperer_des());
         }
       }, delay);
     }
+
     $("#roll").click(function(){
-      setIntervals(showRand, 10, 40)
+      setIntervals(showRand, 10, 40);
+
     });
+
+    
+
   </script>
   <script>
     function afficherPropriete(nb) {
