@@ -364,14 +364,14 @@
           alert(data);
           setTimeout(function(){
             for(part in data){
-              alert(data['user_pseudo']);
+              alert(part);
               $('.listePseudo:eq(' + i + ')').html('<p>' + data['user_pseudo'] + '</p>');
               i++;
             }
           }, 100);
         },
         error: function (error) {
-          alert(error[0]);
+          console.log(error);
         }
       });
     }

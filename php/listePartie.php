@@ -92,8 +92,6 @@ if($_GET['ope'] == 'getChefPartie'){
 
 if($_GET['ope'] == 'getParticipantPartie'){
 
-  addLog($_GET['partie']);
-
   $req = mysqli_query($link, 'SELECT user_pseudo FROM groupe g
   INNER JOIN user u ON g.joueur_id = u.user_id
   WHERE groupe_chef = 0 AND g.partie_id = "'.$_GET['partie'].'"');
