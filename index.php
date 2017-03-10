@@ -39,6 +39,10 @@
           </p>
           <p id="boutonMulti" class="buttonJoueurAccueil" style="vertical-align:middle"><span>MULTI </span></p>
         </p>
+        <!--<div id="test" title="Une pop-up"><p>jefsejfhbsefh ejdhbeif efks</p></div>
+        <script>
+        $('#test').draggable({containment:"parent"},{delay: 300});
+        </script>-->
       </div>
 
 
@@ -137,29 +141,9 @@
           <br />
         </div>
         <p id="nomPartie">partie1</p>
-        <p id="nbJ">Nombre de joueurs : 3/4</p>
+        <p id="nbJ">Nombre de joueurs : <span id="nombreDeJoueur">1</span>/<span id="nombreDeJoueurMax">1</span></p>
         <center>
           <table id="tableauAttente">
-            <tr>
-              <td id="pseudo1"></td>
-              <td id="boutonPret1"><input type="button" value="Prêt" disabled="disabled"/></td>
-              <td id="imgCheck1"></td>
-            </tr>
-            <tr>
-              <td id="pseudo2" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
-              <td id="boutonPret2" class="btnpret"></td>
-              <td id="imgCheck2"></td>
-            </tr>
-            <tr>
-              <td id="pseudo3" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
-              <td id="boutonPret3" class="btnpret"></td>
-              <td id="imgCheck3"></td>
-            </tr>
-            <tr>
-              <td id="pseudo4" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>
-              <td id="boutonPret4" class="btnpret"></td>
-              <td id="imgCheck4"></td>
-            </tr>
           </table>
         </center>
       </div>
@@ -291,54 +275,105 @@
     });
 
     var partie_id;
+    var nbJTotal;
+    var nbJActuel;
 
-    //$(function(){
-      setTimeout(
-        function(){
-          $.ajax({
-            url : 'php/listePartie.php?ope=liste',
-            dataType : 'json',
-            success : function(data){
-              var p = '';
-              for (part in data) {
-                var id = data[part].partie_id;
-                var nom = data[part].partie_nom;
-                var nbJT = data[part].partie_nbJoueur;
-                var chef = data[part].user_pseudo;
-                var plein = data[part].partie_plein;
-                var nbJA = 1;
-                if (plein == 0){
-                  var img = '<img src="Image/vert.png" alt="encore de la place"/>';
-                } else {
-                  var img = '<img src="Image/rouge.png" alt="plus de place"/>';
-                }
-                p = p + '<p><span>Partie <span id="partie' + id + '">' + id + '</span> :</span> <span>' + nom + '</span> <span>' + chef +
-                  '</span> <span><span>' + nbJA + '</span>/' + nbJT + '</span> <span>' + img +
-                  '</span><a id="btn' + id + '" class="buttonRejoindre" style="vertical-align:middle" >' +
-                  '<span onclick="rejPartie(' + id + ')">Rejoindre </span></a></p>';
+    setInterval(
+      function(){
+        $.ajax({
+          url : 'php/listePartie.php?ope=liste',
+          dataType : 'json',
+          success : function(data){
+            var p = '';
+            for (part in data) {
+              var id = data[part].partie_id;
+              var nom = data[part].partie_nom;
+              var nbJT = data[part].partie_nbJoueur;
+              nbJTotal = nbJT;
+              var chef = data[part].user_pseudo;
+              var plein = data[part].partie_plein;
+              var nbJA = data[part].nbJ;
+              nbJActuel = nbJA;
+              if (nbJA < nbJT){
+                var img = '<img src="Image/vert.png" alt="encore de la place"/>';
+                var boutonRej = '<a id="btn' + id + '" class="buttonRejoindre" style="vertical-align:middle" >' +
+                  '<span onclick="rejPartie(' + id + ')">Rejoindre </span>' +
+                '</a>';
+              } else {
+                var img = '<img src="Image/rouge.png" alt="plus de place"/>';
+                var boutonRej = '<a id="btn' + id + '" class="buttonRejoindre" style="vertical-align:middle" >' +
+                  '<span>Rejoindre</span>' +
+                '</a>';
               }
-              $('#listePartie').html(p);
+              p = p + '<p class="listeParties" id="' + id + '">' +
+                        '<span>' +
+                          'Partie <span id="partie' + id + '">' + id + '</span> :' +
+                        '</span> ' +
+                        '<span>' + nom + '</span> ' +
+                        '<span>' + chef + '</span> ' +
+                        '<span>' +
+                          '<span id="nbJA' + id + '">' + nbJA + '</span>/' + nbJT +
+                        '</span> ' +
+                        '<span>' + img + '</span>' +
+                        boutonRej +
+                      '</p>';
             }
-          })
-        }, 500
-      );
-    //});
+            $('#listePartie').html(p);
+          }
+        })
+      }, 500
+    );
+
+    function debloqueBoutonPret(){
+
+    }
+
     function creerPartie(){
       var nom = $('#partie_nom').val();
       var chef = $('#pseudo').val();
       var nbJ = $('#select2').val();
-      //var partie_id;
       $.ajax({
         data : 'nom=' + nom + '&nbJ=' + nbJ + '&pseudo=' + chef,
         url : 'php/listePartie.php?ope=ajout',
         dataType : 'json',
         success : function(data){
+          listerJoueurs();
           afficheJoueurChef(data['partie_id']);
           partie_id = data['partie_id'];
         }
       });
-      //afficheJoueurParticipants(partie_id);
     }
+
+    function listerJoueurs(){
+      var p = '';
+      p = '<tr>' +
+        '<td id="pseudo1"></td>' +
+        '<td id="boutonPret1"><input type="button" value="Prêt" disabled="disabled"/></td>' +
+        '<td id="imgCheck1"></td>' +
+      '</tr>';
+      if (nbJTotal >= 2){
+        p = p + '<tr>' +
+          '<td id="pseudo2" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>' +
+          '<td id="boutonPret2" class="btnpret"></td>' +
+          '<td id="imgCheck2"></td>' +
+        '</tr>';
+      }
+      if (nbJTotal >= 3){
+        p = p + '<tr>' +
+          '<td id="pseudo3" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>' +
+          '<td id="boutonPret3" class="btnpret"></td>' +
+          '<td id="imgCheck3"></td>' +
+        '</tr>';
+      }
+      if (nbJTotal == 4){
+        p = p + '<tr>' +
+          '<td id="pseudo4" class="listePseudo"><img src="Image/loader.gif" class="load" alt="attente"/></td>' +
+          '<td id="boutonPret4" class="btnpret"></td>' +
+        '</tr>';
+      }
+      $('#tableauAttente').html(p);
+    }
+
     function rejoindrePartie(id){
       var joueur = $('#pseudo').val();
       $.ajax({
@@ -346,12 +381,9 @@
         url : 'php/listePartie.php?ope=rejoindre',
         dataType : 'json'
       });
+      listerJoueurs();
       afficheJoueurChef(id);
       partie_id = id;
-      /*setTimeout(function(){
-        alert('coucou');
-        afficheJoueurParticipants(id);
-      }, 2000);*/
     }
 
     function afficheJoueurChef(partie){
@@ -370,23 +402,38 @@
           url : 'php/listePartie.php?ope=getParticipantPartie',
           dataType : 'json',
           success : function(data){
+            if (nbJTotal == nbJActuel){
+              var img = '<input type="button" value="Prêt"/>';
+              $('#boutonPret1').html('<input type="button" value="Prêt"/>');
+            } else {
+              var img = '<input type="button" value="Prêt" disabled="disabled"/>';
+            }
             var i = 0;
             for(part in data){
               $('.listePseudo:eq(' + i + ')').html('<p>' + data[part].user_pseudo + '</p>');
-              $('.btnpret:eq(' + i + ')').html('<input type="button" value="Prêt" disabled="disabled"/>');
+              $('.btnpret:eq(' + i + ')').html(img);
               i++;
             }
-          },
-          error: function (error) {
-            console.log(error);
+          }
+        });
+    }
+    function afficheNombreJoueurParticipants(partie){
+        $.ajax({
+          data : 'id=' + partie,
+          url : 'php/listePartie.php?ope=incNbJ',
+          dataType : 'json',
+          success : function(data){
+            $('#nombreDeJoueur').text(data[0].nb_joueur);
+            $('#nombreDeJoueurMax').text(nbJTotal);
           }
         });
     }
     setInterval(function(){
       if(partie_id != undefined){
         afficheJoueurParticipants(partie_id);
+        afficheNombreJoueurParticipants(partie_id);
       }
-    }, 2000);
+    }, 500);
   </script>
 </body>
 </html>
