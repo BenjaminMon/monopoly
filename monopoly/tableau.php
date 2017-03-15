@@ -18,7 +18,7 @@
       <tr class="Lhaut">
         <!-- CASE 1 -->
         <td colspan="2" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('depart')">
-          <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
+          <!-- JOUEUR ICI :<img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <div class="relative">
             <p class="relative caseNormal">Départ &rarr;</p>
           </div>
@@ -33,7 +33,7 @@
         <!-- CASE 3 -->
         <td rowspan="2" class="relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          3
+          <p class="rien">CAISSE DE COMMUNAUTE</p><img src="Image/coffre de communauté.png" class="caseTrain" alt="train" />
         </td>
 
         <!-- CASE 4 -->
@@ -45,7 +45,7 @@
         <!-- CASE 5 -->
         <td rowspan="2" class="relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          5
+          <p class="rien">IMPOT SUR LE REVENU</p><p></p><p class="rien">200 €</p>
         </td>
 
         <!-- CASE 6 -->
@@ -63,7 +63,7 @@
         <!-- CASE 8 -->
         <td rowspan="2" class="relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          8
+          <p class="rien">CHANCE</p><img src="Image/Chance 2.gif" class="caseTrain" alt="train"/>
         </td>
 
         <!-- CASE 9 -->
@@ -125,12 +125,12 @@
         <!-- CASE 3 DE LA LIGNE DE GAUCHE -->
         <td colspan="2" class="relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          3
+          <p class="rien">TAXE DE LUXE</p><img src="Image/Taxe.gif" class="caseTrain" alt="train" />
         </td>
         <!-- CASE 3 DE LA LIGNE DE DROITE -->
         <td colspan="2" class="relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="Ldroite">9</p>
+          <p class="rien">COMPAGNIE DE DISTRUBUTION D'ELECTRICITE</p><img src="Image/electricite.png" class="caseTrain" alt="train" />
         </td>
       </tr>
 
@@ -153,7 +153,7 @@
         <!-- CASE 5 DE LA LIGNE DE GAUCHE -->
         <td colspan="2" class="relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          5
+          <p class="rien">CHANCE</p><img src="Image/Chance 3.gif" class="caseTrain" alt="train" />
         </td>
         <td class="maison3"></td>
         <!-- CASE 5 DE LA LIGNE DE DROITE -->
@@ -195,12 +195,12 @@
         <!-- CASE 8 DE LA LIGNE DE GAUCHE -->
         <td colspan="2" class="relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          8
+          <p class="rien">CAISSE DE COMMUNAUTE</p><img src="Image/coffre de communauté.png" class="caseTrain" alt="train" />
         </td>
         <!-- CASE 8 DE LA LIGNE DE DROITE -->
         <td colspan="2" class="relative">
           <!--<img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="Ldroite">4</p>
+          <p class="rien">CAISSE DE COMMUNAUTE</p><img src="Image/coffre de communauté.png" class="caseTrain" alt="train" />
         </td>
       </tr>
 
@@ -245,7 +245,7 @@
         <!-- CASE 3 -->
         <td rowspan="2 relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          9
+          <p class="rien">COMPAGNIE DE DISTRUBUTION DES EAUX</p><img src="Image/eau.gif" class="caseTrain" alt="train" />
         </td>
         <!-- CASE 4 -->
         <td class="maison6"></td>
@@ -263,7 +263,7 @@
         <!-- CASE 9 -->
         <td rowspan="2" class="relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          3
+          <p class="rien">CHANCE</p><img src="Image/Chance 1.gif" class="caseTrain" alt="train" />
         </td>
         <!-- CASE 10 -->
         <td class="maison5"></td>
@@ -271,6 +271,7 @@
         <td colspan="2" rowspan="2" class="text_centrer relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           Parking gratuit
+          <img src="Image/parc_gratuit.png" class="caseTrain" alt="train" />
         </td>
       </tr>
       <!-- TOUJOURS TROISIEME LIGNE POUR LES COULEURS DES EMPLACEMENTS -->
