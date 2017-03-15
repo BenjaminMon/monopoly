@@ -14,8 +14,10 @@ mysqli_set_charset($link, "utf8");
 if($_GET['ope'] == 'liste'){
   $listePartie = array();
   $req = mysqli_query($link,
-    'SELECT partie_id, partie_nom, partie_nbJoueur, partie_plein, user_pseudo FROM partie
-    INNER JOIN user ON user_id = partie_go'
+    'SELECT g.partie_id, partie_nom, partie_nbJoueur, partie_plein, user_pseudo, COUNT(g.joueur_id) AS nbJ FROM partie
+    INNER JOIN user ON user_id = partie_go
+    INNER JOIN groupe g ON g.partie_id = partie.partie_id
+    GROUP BY g.partie_id'
   );
 
   while ($row = mysqli_fetch_array($req, MYSQL_ASSOC)) {
@@ -24,14 +26,31 @@ if($_GET['ope'] == 'liste'){
        'partie_nom' => $row['partie_nom'],
        'partie_nbJoueur' => $row['partie_nbJoueur'],
        'partie_plein' => $row['partie_plein'],
-       'user_pseudo' => $row['user_pseudo']
+       'user_pseudo' => $row['user_pseudo'],
+       'nbJ' => $row['nbJ']
      ];
   }
   $test = json_encode($listePartie);
   echo $test;
-  /*$test2 = json_decode($test);
-  var_dump($test2);
-  echo $test2[0]->partie_nom;*/
+}
+
+if($_GET['ope'] == 'incNbJ'){
+  $nbJ = array();
+
+  $newId = $_GET['id'];
+
+  $stmt = mysqli_prepare($link, "SELECT COUNT(*) AS nb_joueur FROM groupe
+    WHERE partie_id = ? GROUP BY partie_id");
+
+  mysqli_stmt_bind_param($stmt, "s", $newId);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_bind_result($stmt, $district);
+  mysqli_stmt_fetch($stmt);
+
+  $nbJ[] = ['nb_joueur' => $district];
+
+  $test = json_encode($nbJ);
+  echo $test;
 }
 
 if($_GET['ope'] == 'ajout'){
@@ -91,8 +110,6 @@ if($_GET['ope'] == 'getChefPartie'){
 }
 
 if($_GET['ope'] == 'getParticipantPartie'){
-
-  addLog($_GET['partie']);
 
   $req = mysqli_query($link, 'SELECT user_pseudo FROM groupe g
   INNER JOIN user u ON g.joueur_id = u.user_id
