@@ -10,7 +10,6 @@ var joueur1 = 1; // TODO GET id
 
 var joueur_courant = 1; // TODO requête vers la base en setTimeOut pour toujours avec le joueur_courant à jour. 
 
-
 function changer_joueur_courant(){
 	if (joueur_courant != nb_joueur) {
 		joueur_courant++;
@@ -29,7 +28,7 @@ function changer_joueur_courant(){
 
 function recuperer_des(){
 	
-	// après avoir lancé les dés
+	// après avoir lancé les dés on recup leur valeurs
 	var valeur_de1 = $("#dice1").text();
     var valeur_de2 = $("#dice2").text();
 
@@ -38,7 +37,24 @@ function recuperer_des(){
 }
 
 function deplacer_joueur(nb_cases){
-	// Besoin des id sur les cases 
-	// pour effectuer le deplacement
+	console.log("DES = ", nb_cases);
+
+
+	id_case_joueur = parseInt($(".joueur_courant").parents('td').attr("id"));
+	console.log("id_case_joueur = ", id_case_joueur);
+
+	$(".joueur_courant").remove();
+
+	nouvelle_case = (id_case_joueur + nb_cases)%40;
+	console.log("nouvelle case = ", nouvelle_case);
+
+	selector = "#"+nouvelle_case;
+	console.log("selector = ", selector);
+	$(selector).append("<img src='Image/joueur1.png' class='joueur1 absolute joueur_courant' alt='J1' />");
+
 }
 
+function sleep(delay) {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + delay);
+}
