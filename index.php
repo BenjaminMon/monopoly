@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="css/cs-skin-circular.css" />
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <!--<script src="jquery-3.1.1.min"></script>-->
 </head>
 <body>
   <!-- CONTAINER -->
@@ -22,10 +21,7 @@
     <!-- BODY (wrapper) -->
     <div id="body">
 
-
-
       <!-- ACCUEIL => SOLO OU MULTI -->
-
 
       <!-- ACCUEIL -->
 
@@ -39,12 +35,7 @@
           </p>
           <p id="boutonMulti" class="buttonJoueurAccueil" style="vertical-align:middle"><span>MULTI </span></p>
         </p>
-        <!--<div id="test" title="Une pop-up"><p>jefsejfhbsefh ejdhbeif efks</p></div>
-        <script>
-        $('#test').draggable({containment:"parent"},{delay: 300});
-        </script>-->
       </div>
-
 
 
       <!-- MULTI => CHOIX = CREER OU REJOINDRE   -->
@@ -348,7 +339,7 @@
       var p = '';
       p = '<tr>' +
         '<td id="pseudo1"></td>' +
-        '<td id="boutonPret1"><input type="button" value="Prêt" disabled="disabled"/></td>' +
+        '<td id="boutonPret1"><a class="buttonPret button" style="vertical-align:middle" >Prêt</a></td>' +
         '<td id="imgCheck1"></td>' +
       '</tr>';
       if (nbJTotal >= 2){
@@ -403,10 +394,10 @@
           dataType : 'json',
           success : function(data){
             if (nbJTotal == nbJActuel){
-              var img = '<input type="button" value="Prêt"/>';
-              $('#boutonPret1').html('<input type="button" value="Prêt"/>');
+              var img = '<a class="buttonPret button" style="vertical-align:middle" ><span onclick="pretAJouer()">Prêt</span></a>';
+              $('#boutonPret1').html('<a class="buttonPret button" style="vertical-align:middle" ><span onclick="pretAJouer()">Prêt</span></a>');
             } else {
-              var img = '<input type="button" value="Prêt" disabled="disabled"/>';
+              var img = '<a class="buttonPret button" style="vertical-align:middle" >Prêt</a>';
             }
             var i = 0;
             for(part in data){
