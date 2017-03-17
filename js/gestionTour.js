@@ -42,27 +42,31 @@ function deplacer_joueur(nb_cases){
 	//console.log("DES = ", nb_cases);
 	compteur_case = 1;
 	var id_refresh_deplacer = setInterval(function(){deplacer(nb_cases)}, 500);
+	setTimeout(function(){clearInterval(id_refresh_deplacer)}, 500*(nb_cases+1));
 
 }
 
 
 function deplacer(nb_cases){
 	case_diff = 1;
-	id_case_joueur = parseInt($(".joueur_courant").parents('td').attr("id"));
-	//console.log("id_case_joueur = ", id_case_joueur);
 
-	nouvelle_case = (id_case_joueur + case_diff)%40;
-	//console.log("nouvelle case = ", nouvelle_case);
+	if (compteur_case <= nb_cases){
+		console.log("if");
+		id_case_joueur = parseInt($(".joueur_courant").parents('td').attr("id"));
+		//console.log("id_case_joueur = ", id_case_joueur);
 
-	$(".joueur_courant").remove();
+		nouvelle_case = (id_case_joueur + case_diff)%40;
+		//console.log("nouvelle case = ", nouvelle_case);
 
-	selector = "#"+nouvelle_case;
-	//console.log("selector = ", selector);
-	$(selector).append("<img src='Image/joueur1.png' class='joueur1 absolute joueur_courant' alt='J1' />");
-	compteur_case++;
-	
-	if (compteur_case == nb_cases){
-		console.log("coucou");
+		$(".joueur_courant").remove();
+
+		selector = "#"+nouvelle_case;
+		//console.log("selector = ", selector);
+		$(selector).append("<img src='Image/joueur1.png' class='joueur1 absolute joueur_courant' alt='J1' />");
+		compteur_case++;
+		
+	} else {
+		console.log("else");
 	}
 	
 }
