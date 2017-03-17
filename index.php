@@ -266,7 +266,7 @@
     });
 
     var partie_id;
-    var nbJTotal;
+    var nbJTotal = 90;
     var nbJActuel;
 
     setInterval(
@@ -280,7 +280,6 @@
               var id = data[part].partie_id;
               var nom = data[part].partie_nom;
               var nbJT = data[part].partie_nbJoueur;
-              nbJTotal = nbJT;
               var chef = data[part].user_pseudo;
               var plein = data[part].partie_plein;
               var nbJA = data[part].nbJ;
@@ -315,8 +314,31 @@
       }, 500
     );
 
-    function debloqueBoutonPret(){
+    function recupNbJoueurTotal(idp){
+      $.ajax({
+        async : false,
+        data : 'partie=' + idp,
+        url : 'php/listePartie.php?ope=listeNbJ',
+        dataType : 'json',
+        success : function(data){
+          var id = data[0].partie_id;
+          partie_id = id;
+          var nbJT = data[0].nb_joueur;
+          nbJTotal = nbJT;
+        },
+      });
+    }
 
+    function debloqueBoutonPret(idpart){
+      $.ajax({
+        async : false,
+        data : 'partie=' + idpart,
+        url : 'php/listePartie.php?ope=newGame',
+        dataType : 'json',
+        success : function(data){
+
+        }
+      });
     }
 
     function creerPartie(){
@@ -328,14 +350,16 @@
         url : 'php/listePartie.php?ope=ajout',
         dataType : 'json',
         success : function(data){
+          partie_id = data['partie_id'];
+          recupNbJoueurTotal(partie_id);
           listerJoueurs();
           afficheJoueurChef(data['partie_id']);
-          partie_id = data['partie_id'];
         }
       });
     }
 
     function listerJoueurs(){
+
       var p = '';
       p = '<tr>' +
         '<td id="pseudo1"></td>' +
@@ -372,6 +396,7 @@
         url : 'php/listePartie.php?ope=rejoindre',
         dataType : 'json'
       });
+      recupNbJoueurTotal(id);
       listerJoueurs();
       afficheJoueurChef(id);
       partie_id = id;
@@ -387,6 +412,7 @@
         }
       });
     }
+
     function afficheJoueurParticipants(partie){
         $.ajax({
           data : 'partie=' + partie,
@@ -394,8 +420,8 @@
           dataType : 'json',
           success : function(data){
             if (nbJTotal == nbJActuel){
-              var img = '<a class="buttonPret button" style="vertical-align:middle" ><span onclick="pretAJouer()">Prêt</span></a>';
-              $('#boutonPret1').html('<a class="buttonPret button" style="vertical-align:middle" ><span onclick="pretAJouer()">Prêt</span></a>');
+              var img = '<a class="buttonPret button" style="vertical-align:middle" ><span onclick="pretAJouer(' + partie_id + ')">Prêt</span></a>';
+              $('#boutonPret1').html('<a class="buttonPret button" style="vertical-align:middle" ><span onclick="pretAJouer(' + partie_id + ')">Prêt</span></a>');
             } else {
               var img = '<a class="buttonPret button" style="vertical-align:middle" >Prêt</a>';
             }
@@ -408,17 +434,31 @@
           }
         });
     }
+
     function afficheNombreJoueurParticipants(partie){
-        $.ajax({
-          data : 'id=' + partie,
-          url : 'php/listePartie.php?ope=incNbJ',
-          dataType : 'json',
-          success : function(data){
-            $('#nombreDeJoueur').text(data[0].nb_joueur);
-            $('#nombreDeJoueurMax').text(nbJTotal);
-          }
-        });
+      $.ajax({
+        data : 'id=' + partie,
+        url : 'php/listePartie.php?ope=incNbJ',
+        dataType : 'json',
+        success : function(data){
+          $('#nombreDeJoueur').text(data[0].nb_joueur);
+          $('#nombreDeJoueurMax').text(nbJTotal);
+        }
+      });
     }
+
+    function pretAJouer(id){
+      $.ajax({
+        data : 'id=' + id,
+        url : 'php/listePartie.php?ope=pretAJouer',
+        dataType : 'json',
+        success : function(data){
+          $('#nombreDeJoueur').text(data[0].nb_joueur);
+          $('#nombreDeJoueurMax').text(nbJTotal);
+        }
+      });
+    }
+
     setInterval(function(){
       if(partie_id != undefined){
         afficheJoueurParticipants(partie_id);

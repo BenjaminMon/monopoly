@@ -34,6 +34,25 @@ if($_GET['ope'] == 'liste'){
   echo $test;
 }
 
+if($_GET['ope'] == 'listeNbJ'){
+  $listeNbJ = array();
+
+  $id = $_GET['partie'];
+
+  $stmt = mysqli_prepare($link, "SELECT partie_id, partie_nbJoueur FROM partie
+  WHERE partie_id = ? ");
+
+  mysqli_stmt_bind_param($stmt, "s", $id);
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_bind_result($stmt, $district, $district2);
+  mysqli_stmt_fetch($stmt);
+
+  $listeNbJ[] = ['partie_id' => $district, 'nb_joueur' => $district2];
+
+  $test = json_encode($listeNbJ);
+  echo $test;
+}
+
 if($_GET['ope'] == 'incNbJ'){
   $nbJ = array();
 
@@ -99,6 +118,8 @@ if($_GET['ope'] == 'rejoindre'){
 
 if($_GET['ope'] == 'getChefPartie'){
 
+  $pseudo = array();
+
   $req = mysqli_query($link, 'SELECT user_pseudo FROM groupe g
   INNER JOIN user u ON g.joueur_id = u.user_id
   WHERE groupe_chef = 1 AND g.partie_id = "'.$_GET['partie'].'"');
@@ -111,6 +132,8 @@ if($_GET['ope'] == 'getChefPartie'){
 
 if($_GET['ope'] == 'getParticipantPartie'){
 
+  $pseudo = array();
+
   $req = mysqli_query($link, 'SELECT user_pseudo FROM groupe g
   INNER JOIN user u ON g.joueur_id = u.user_id
   WHERE groupe_chef = 0 AND g.partie_id = "'.$_GET['partie'].'"');
@@ -119,6 +142,16 @@ if($_GET['ope'] == 'getParticipantPartie'){
   }
   $test = json_encode($pseudo);
   echo $test;
+}
+
+if($_GET['ope'] == 'pretAJouer'){
+
+  $req = mysqli_query($link, 'SELECT user_pseudo FROM groupe g
+  INNER JOIN user u ON g.joueur_id = u.user_id
+  WHERE groupe_chef = 0 AND g.partie_id = "'.$_GET['partie'].'"');
+  while ($row = mysqli_fetch_array($req, MYSQL_ASSOC)) {
+   $pseudo[] = ['user_pseudo' => utf8_encode($row['user_pseudo'])];
+  }
 }
 
 ?>
