@@ -10,7 +10,29 @@ var joueur1 = 1; // TODO GET id
 var compteur_case = 1;
 var joueur_courant = 1; // TODO requête vers la base en setTimeOut pour toujours avec le joueur_courant à jour. 
 
-function changer_joueur_courant(){
+ $("#passer").on("click", function(){
+ 	if (joueur_courant == 4){
+ 		joueur_courant = 1;
+ 	} else {
+    	joueur_courant++;
+    }
+ });
+
+setInterval(check_joueur_courant, 2000);
+
+function check_joueur_courant(){
+	selector = ".joueur" + joueur_courant;
+	if (!$(selector).hasClass("joueur_courant")){
+		// console.log("if");
+		joueur_precedent = joueur_courant - 1,
+		selector2 = ".joueur" + joueur_precedent;
+		$(selector2).removeClass("joueur_courant");
+		$(selector).addClass("joueur_courant");
+	}
+	console.log(joueur_courant);
+}
+
+function changer_joueur_potision(){
 	if (joueur_courant != nb_joueur) {
 		joueur_courant++;
 	} else {
@@ -41,7 +63,10 @@ function deplacer_joueur(nb_cases){
 		
 	//console.log("DES = ", nb_cases);
 	compteur_case = 1;
+	// On lance le déplacement
 	var id_refresh_deplacer = setInterval(function(){deplacer(nb_cases)}, 500);
+	// On le clean un tic après pour être sur qu'on se déplace du bon nombre de case
+	// et pas une de moins
 	setTimeout(function(){clearInterval(id_refresh_deplacer)}, 500*(nb_cases+1));
 
 }
@@ -50,24 +75,20 @@ function deplacer_joueur(nb_cases){
 function deplacer(nb_cases){
 	case_diff = 1;
 
+	// On avance case par case autant de fois que les dés l'indique (nb_cases)
 	if (compteur_case <= nb_cases){
-		console.log("if");
 		id_case_joueur = parseInt($(".joueur_courant").parents('td').attr("id"));
-		//console.log("id_case_joueur = ", id_case_joueur);
+		joueur_num = $(".joueur_courant").attr("id");
 
 		nouvelle_case = (id_case_joueur + case_diff)%40;
-		//console.log("nouvelle case = ", nouvelle_case);
 
 		$(".joueur_courant").remove();
-
 		selector = "#"+nouvelle_case;
-		//console.log("selector = ", selector);
-		$(selector).append("<img src='Image/joueur1.png' class='joueur1 absolute joueur_courant' alt='J1' />");
+		$(selector).append("<img src='Image/" + joueur_num + ".png' id='" + joueur_num + "' class='" + joueur_num + " absolute joueur_courant' alt='" + joueur_num + "' />");
+
 		compteur_case++;
 		
-	} else {
-		console.log("else");
-	}
+	} // Sinon rien ne se passe
 	
 }
 
@@ -75,3 +96,5 @@ function sleep(delay) {
         var start = new Date().getTime();
         while (new Date().getTime() < start + delay);
 }
+
+

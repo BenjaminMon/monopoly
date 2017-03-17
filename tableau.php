@@ -18,7 +18,10 @@
       <tr class="Lhaut">
         <!-- CASE 1 -->
         <td  id="0" colspan="2" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('depart')">
-          <img src="Image/joueur1.png" class="joueur1 absolute joueur_courant" alt="J1" />
+          <img src="Image/joueur1.png" id="joueur1" class="joueur1 absolute joueur_courant" alt="J1" />
+          <img src="Image/joueur2.png" id="joueur2" class="joueur2 absolute" alt="J2" />
+          <img src="Image/joueur3.png" id="joueur3" class="joueur3 absolute" alt="J3" />
+          <img src="Image/joueur4.png" id="joueur4" class="joueur4 absolute" alt="J4" />
           <div class="relative">
             <p class="relative caseNormal">Départ &rarr;</p>
           </div>
@@ -320,6 +323,8 @@
 
   <script src="js/gestionTour.js"></script>
   <script>
+
+   
 
     function showRand(){
       var random1 = Math.floor(Math.random() * 6 + 1);
