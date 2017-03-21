@@ -9,8 +9,7 @@
 </head>
 <body>
   <div id="stat">
-    <p>Nombre de joueur : </p>
-    <div id="joueurs"><p>qqch</p></div>
+    <p>C'est au tour du joueur 1</p>
   </div>
   <center>
     <table>
@@ -30,7 +29,7 @@
         <!-- CASE 2 -->
         <td id="1" class="text_centrer relative" onclick="afficherPropriete('1.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">BOULEVARD DE BELLEVILLE</p><p></p><p class="rien">60 €</p>
+          <p class="rien">BOULEVARD DE BELLEVILLE</p><p></p><p id="prix1" class="rien">60 €</p>
         </td>
 
         <!-- CASE 3 -->
@@ -42,25 +41,25 @@
         <!-- CASE 4 -->
         <td id="3" class="text_centrer relative" onclick="afficherPropriete('1.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">RUE LECOURBE</p><p></p><p class="rien">60 €</p>
+          <p class="rien">RUE LECOURBE</p><p></p><p id="prix3" class="rien">60 €</p>
         </td>
 
         <!-- CASE 5 -->
         <td id="4" rowspan="2" class="relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">IMPOTS SUR LE REVENU</p><p></p><p class="rien">200 €</p>
+          <p class="rien">IMPOTS SUR LE REVENU</p><p></p><p id="prix4" class="rien">200 €</p>
         </td>
 
         <!-- CASE 6 -->
         <td id="5" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('gare1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">GARE MONTPARNASSE</p><img src="Image/train.png" class="caseTrain" alt="train" /><p class="rien">200 €</p>
+          <p class="rien">GARE MONTPARNASSE</p><img src="Image/train.png" class="caseTrain" alt="train" /><p id="prix5" class="rien">200 €</p>
         </td>
 
         <!-- CASE 7 -->
         <td id="6" class="text_centrer relative" onclick="afficherPropriete('2.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-            <p class="rien">RUE DE VAUGIRARD</p><p></p><p class="rien">100 €</p>
+            <p class="rien">RUE DE VAUGIRARD</p><p></p><p id="prix6" class="rien">100 €</p>
         </td>
 
         <!-- CASE 8 -->
@@ -72,13 +71,13 @@
         <!-- CASE 9 -->
         <td id="8" class="text_centrer relative" onclick="afficherPropriete('2.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">RUE DE COURCELLES</p><p></p><p class="rien">100 €</p>
+          <p class="rien">RUE DE COURCELLES</p><p></p><p id="prix8" class="rien">100 €</p>
         </td>
 
         <!-- CASE 10 -->
         <td id="9" class="text_centrer relative" onclick="afficherPropriete('2.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">AVENUE DE LA REPUBLIQUE</p><p></p><p class="rien">120 €</p>
+          <p class="rien">AVENUE DE LA REPUBLIQUE</p><p></p><p id="prix9" class="rien">120 €</p>
         </td>
 
         <!-- CASE 11 -->
@@ -109,7 +108,7 @@
         <!-- CASE 2 DE LA LIGNE DE GAUCHE -->
         <td id="39" class="text_centrer relative" onclick="afficherPropriete('8.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">RUE DE LA PAIX</p><p></p><p class="rien">400 €</p>
+          <p class="rien">RUE DE LA PAIX</p><p></p><p id="prix39" class="rien">400 €</p>
         </td>
         <td class="maison8"></td>
         <!-- CASE CENTRALE -->
@@ -120,7 +119,7 @@
         <td class="maison3"></td>
         <td id="11" class="text_centrer relative" onclick="afficherPropriete('3.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p  class="rien">BOULEVARD DE LA VILLETTE</p><p></p><p class="rien">140 €</p>
+          <p  class="rien">BOULEVARD DE LA VILLETTE</p><p></p><p id="prix11" class="rien">140 €</p>
         </td>
       </tr>
 
@@ -128,12 +127,13 @@
         <!-- CASE 3 DE LA LIGNE DE GAUCHE -->
         <td id="38" colspan="2" class="text_centrer relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">TAXE DE LUXE</p><img src="Image/Taxe.gif" class="caseTrain" alt="train" />
+          <p class="rien">TAXE DE LUXE</p><img src="Image/Taxe.gif" class="caseTrain" alt="train" /><p id="prix38" class="rien">100 €</p>
         </td>
         <!-- CASE 3 DE LA LIGNE DE DROITE -->
         <td id="12" colspan="2" class="text_centrer relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">COMPAGNIE DE DISTRUBUTION D'ELECTRICITE</p><img src="Image/electricite.png" class="caseTrain" alt="train" />
+          <p id="prix12" class="rien">150 €</p>
         </td>
       </tr>
 
@@ -141,14 +141,14 @@
         <!-- CASE 4 DE LA LIGNE DE GAUCHE -->
         <td id="37" class="text_centrer relative" onclick="afficherPropriete('8.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">AVENUE DES CHAMPS-ELYSEES</p><p></p><p class="rien">350 €</p>
+          <p class="rien">AVENUE DES CHAMPS-ELYSEES</p><p></p><p id="prix37" class="rien">350 €</p>
         </td>
         <td class="maison8"></td>
         <!-- CASE 4 DE LA LIGNE DE DROITE -->
         <td class="maison3"></td>
         <td id="13" class="text_centrer relative" onclick="afficherPropriete('3.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">AVENUE DE NEUILLY</p><p></p><p class="rien">140 €</p>
+          <p class="rien">AVENUE DE NEUILLY</p><p></p><p id="prix13" class="rien">140 €</p>
         </td>
       </tr>
 
@@ -162,7 +162,7 @@
         <!-- CASE 5 DE LA LIGNE DE DROITE -->
         <td id="14" class="text_centrer relative" onclick="afficherPropriete('3.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">RUE DE PARADIS</p><p></p><p class="rien">160 €</p>
+          <p class="rien">RUE DE PARADIS</p><p></p><p id="prix14" class="rien">160 €</p>
         </td>
       </tr>
 
@@ -170,12 +170,12 @@
         <!-- CASE 6 DE LA LIGNE DE GAUCHE -->
         <td id="35" colspan="2" class="text_centrer relative" onclick="afficherPropriete('gare4')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">GARE SAINT-LAZARE</p><img src="Image/train.png" class="caseTrain" alt="train" /><p class="rien">200 €</p>
+          <p class="rien">GARE SAINT-LAZARE</p><img src="Image/train.png" class="caseTrain" alt="train" /><p id="prix35" class="rien">200 €</p>
         </td>
         <!-- CASE 6 DE LA LIGNE DE DROITE -->
         <td id="15" colspan="2" class="text_centrer relative" onclick="afficherPropriete('gare2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">GARE DE LYON</p><img src="Image/train.png" class="caseTrain" alt="train" /><p class="rien">200 €</p>
+          <p class="rien">GARE DE LYON</p><img src="Image/train.png" class="caseTrain" alt="train" /><p id="prix15" class="rien">200 €</p>
         </td>
       </tr>
 
@@ -183,14 +183,14 @@
         <!-- CASE 7 DE LA LIGNE DE GAUCHE -->
         <td id="34" class="text_centrer relative" onclick="afficherPropriete('7.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">BOULEVARD DES CAPUCINES</p><p></p><p class="rien">320 €</p>
+          <p class="rien">BOULEVARD DES CAPUCINES</p><p></p><p id="prix34" class="rien">320 €</p>
         </td>
         <td class="maison7"></td>
         <!-- CASE 7 DE LA LIGNE DE DROITE -->
         <td class="maison4"></td>
         <td id="16" class="text_centrer relative" onclick="afficherPropriete('4.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">AVENUE MOZART</p><p></p><p class="rien">180 €</p>
+          <p class="rien">AVENUE MOZART</p><p></p><p id="prix16" class="rien">180 €</p>
         </td>
       </tr>
 
@@ -211,14 +211,14 @@
         <!-- CASE 9 DE LA LIGNE DE GAUCHE -->
         <td id="32" class=" text_centrer relative" onclick="afficherPropriete('7.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">AVENUE FOCH</p><p></p><p class="rien">300 €</p>
+          <p class="rien">AVENUE FOCH</p><p></p><p id="prix32" class="rien">300 €</p>
         </td>
         <td class="maison7"></td>
         <!-- CASE 9 DE LA LIGNE DE DROITE -->
         <td class="maison4"></td>
         <td id="18" class="text_centrer relative" onclick="afficherPropriete('4.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">BOULEVARD SAINT-MICHEL</p><p></p><p class="rien">180 €</p>
+          <p class="rien">BOULEVARD SAINT-MICHEL</p><p></p><p id="prix18" class="rien">180 €</p>
         </td>
       </tr>
 
@@ -226,14 +226,14 @@
         <!-- CASE 10 DE LA LIGNE DE GAUCHE -->
         <td id="31" class="text_centrer relative" onclick="afficherPropriete('7.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">AVENUE DE BRETEUIL</p><p></p><p class="rien">300 €</p>
+          <p class="rien">AVENUE DE BRETEUIL</p><p></p><p id="prix31" class="rien">300 €</p>
         </td>
         <td class="maison7"></td>
         <!-- CASE 10 DE LA LIGNE DE DROITE -->
         <td class="maison4"></td>
         <td id="19" class="text_centrer relative" onclick="afficherPropriete('4.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">PLAGE PIGALLE</p><p></p><p class="rien">200 €</p>
+          <p class="rien">PLAGE PIGALLE</p><p></p><p id="prix19" class="rien">200 €</p>
         </td>
       </tr>
       <!-- TROISIEME LIGNE -->
@@ -249,6 +249,7 @@
         <td id="28"rowspan="2" class="text_centrer relative">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">COMPAGNIE DE DISTRUBUTION DES EAUX</p><img src="Image/eau.gif" class="caseTrain" alt="train" />
+          <p id="prix28" class="rien">150 €</p>
         </td>
         <!-- CASE 4 -->
         <td class="maison6"></td>
@@ -257,7 +258,7 @@
         <!-- CASE 6 -->
         <td id="25" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('gare3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">GARE DU NORD</p><img src="Image/train.png" class="caseTrain" alt="train" /><p class="rien">200 €</p>
+          <p class="rien">GARE DU NORD</p><img src="Image/train.png" class="caseTrain" alt="train" /><p id="prix25" class="rien">200 €</p>
         </td>
         <!-- CASE 7 -->
         <td class="maison5"></td>
@@ -281,32 +282,32 @@
         <!-- CASE 2 -->
         <td id="29" class="text_centrer relative" onclick="afficherPropriete('6.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">RUE LA FAYETTE</p><p></p><p class="rien">280 €</p>
+          <p class="rien">RUE LA FAYETTE</p><p></p><p id="prix29" class="rien">280 €</p>
         </td>
         <!-- CASE 4 -->
         <td id="27" class="text_centrer relative" onclick="afficherPropriete('6.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">PLACE DE LA BOURSE</p><p></p><p class="rien">260 €</p>
+          <p class="rien">PLACE DE LA BOURSE</p><p></p><p id="prix27" class="rien">260 €</p>
         </td>
         <!-- CASE 5 -->
         <td id="26" class="text_centrer relative" onclick="afficherPropriete('6.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">FAUBOURG SAINT-HONORE</p><p></p><p class="rien">260 €</p>
+          <p class="rien">FAUBOURG SAINT-HONORE</p><p></p><p id="prix26" class="rien">260 €</p>
         </td>
         <!-- CASE 7 -->
         <td id="24" class="text_centrer relative" onclick="afficherPropriete('5.3')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">AVENUE HENRI-MARTIN</p><p></p><p class="rien">240 €</p>
+          <p class="rien">AVENUE HENRI-MARTIN</p><p></p><p id="prix24" class="rien">240 €</p>
         </td>
         <!-- CASE 8 -->
         <td id="23" class="text_centrer relative" onclick="afficherPropriete('5.2')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">BOULEVARD MALESHERBES</p><p></p><p class="rien">220 €</p>
+          <p class="rien">BOULEVARD MALESHERBES</p><p></p><p id="prix23" class="rien">220 €</p>
         </td>
         <!-- CASE 10 -->
         <td id="21" class="text_centrer relative" onclick="afficherPropriete('5.1')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
-          <p class="rien">AVENUE MATIGNON</p><p></p><p class="rien">220 €</p>
+          <p class="rien">AVENUE MATIGNON</p><p></p><p id="prix21" class="rien">220 €</p>
         </td>
 
       </tr>
