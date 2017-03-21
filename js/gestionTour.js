@@ -22,16 +22,22 @@ setInterval(check_joueur_courant, 2000);
 
 function check_joueur_courant(){
 	selector = ".joueur" + joueur_courant;
+	console.log("selector = ", selector);
 	if (!$(selector).hasClass("joueur_courant")){
 		// console.log("if");
-		joueur_precedent = joueur_courant - 1,
+		if (joueur_courant == 1){
+			joueur_precedent = 4;
+		} else {
+			joueur_precedent = joueur_courant - 1;
+		}
 		selector2 = ".joueur" + joueur_precedent;
 		$(selector2).removeClass("joueur_courant");
 		$(selector).addClass("joueur_courant");
 	}
-	console.log(joueur_courant);
+	// console.log(joueur_courant);
 }
 
+/*
 function changer_joueur_potision(){
 	if (joueur_courant != nb_joueur) {
 		joueur_courant++;
@@ -47,6 +53,7 @@ function changer_joueur_potision(){
 	});
 
 }
+*/
 
 function recuperer_des(){
 	
@@ -79,7 +86,7 @@ function deplacer(nb_cases){
 	if (compteur_case <= nb_cases){
 		id_case_joueur = parseInt($(".joueur_courant").parents('td').attr("id"));
 		joueur_num = $(".joueur_courant").attr("id");
-
+		console.log("Joueur num = ", joueur_num);
 		nouvelle_case = (id_case_joueur + case_diff)%40;
 
 		$(".joueur_courant").remove();
