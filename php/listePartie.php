@@ -144,14 +144,4 @@ if($_GET['ope'] == 'getParticipantPartie'){
   echo $test;
 }
 
-if($_GET['ope'] == 'pretAJouer'){
-
-  $req = mysqli_query($link, 'SELECT user_pseudo FROM groupe g
-  INNER JOIN user u ON g.joueur_id = u.user_id
-  WHERE groupe_chef = 0 AND g.partie_id = "'.$_GET['partie'].'"');
-  while ($row = mysqli_fetch_array($req, MYSQL_ASSOC)) {
-   $pseudo[] = ['user_pseudo' => utf8_encode($row['user_pseudo'])];
-  }
-}
-
 ?>

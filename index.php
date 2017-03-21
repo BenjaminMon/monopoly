@@ -420,17 +420,20 @@
           dataType : 'json',
           success : function(data){
             if (nbJTotal == nbJActuel){
-              var img = '<a class="buttonPret button" style="vertical-align:middle" ><span onclick="pretAJouer(' + partie_id + ')">Prêt</span></a>';
+              var img = '<a href="" class="buttonPret button" style="vertical-align:middle"><span onclick="pretAJouer(' + partie_id + ')">Prêt</span></a>';
               $('#boutonPret1').html('<a class="buttonPret button" style="vertical-align:middle" ><span onclick="pretAJouer(' + partie_id + ')">Prêt</span></a>');
             } else {
-              var img = '<a class="buttonPret button" style="vertical-align:middle" >Prêt</a>';
+              var img = '<a href="" class="buttonPret button" style="vertical-align:middle" >Prêt</a>';
             }
             var i = 0;
             for(part in data){
+              j = i + 2;
               $('.listePseudo:eq(' + i + ')').html('<p>' + data[part].user_pseudo + '</p>');
               $('.btnpret:eq(' + i + ')').html(img);
+              $('.btnpret > a:eq(' + i + ')').attr('href', 'tableau.php?partieId=' + partie_id + '&numJoueur=' + j); // Changer le a par la vrai valeur
               i++;
             }
+            $('#boutonPret1 > a').attr('href', 'tableau.php?partieId=' + partie_id + '&numJoueur=1');
           }
         });
     }
