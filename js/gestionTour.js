@@ -124,7 +124,7 @@ function sleep(delay) {
 }
 
 
-function creerPartie(){
+function recup_joueur_courant(){
       var id_partie;
       $.ajax({
         data : 'id_partie=' + id_partie,

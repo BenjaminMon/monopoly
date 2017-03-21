@@ -9,6 +9,6 @@ if($_GET['ope'] == 'liste'){
 
 	$id_partie = $_GET['id_parite'];
 
-	$stmt = mysqli_prepare($link, 'LOL');
+	$stmt = mysqli_prepare($link, '');
 
 }
