@@ -21,18 +21,30 @@ var joueur_courant = 1; // TODO requête vers la base en setTimeOut pour toujour
 setInterval(check_joueur_courant, 2000);
 
 function check_joueur_courant(){
+
+	// ajax -> select joueur_courant
+
+
+
+
 	selector = ".joueur" + joueur_courant;
-	console.log("selector = ", selector);
+	// console.log("selector = ", selector);
 	if (!$(selector).hasClass("joueur_courant")){
 		// console.log("if");
 		if (joueur_courant == 1){
+
 			joueur_precedent = 4;
+
 		} else {
+
 			joueur_precedent = joueur_courant - 1;
+		
 		}
+
 		selector2 = ".joueur" + joueur_precedent;
 		$(selector2).removeClass("joueur_courant");
 		$(selector).addClass("joueur_courant");
+
 	}
 	// console.log(joueur_courant);
 }
@@ -84,16 +96,23 @@ function deplacer(nb_cases){
 
 	// On avance case par case autant de fois que les dés l'indique (nb_cases)
 	if (compteur_case <= nb_cases){
+
+		// ajax -> select joueur_courant
+
 		id_case_joueur = parseInt($(".joueur_courant").parents('td').attr("id"));
 		joueur_num = $(".joueur_courant").attr("id");
-		console.log("Joueur num = ", joueur_num);
+		// console.log("Joueur num = ", joueur_num);
+
+
 		nouvelle_case = (id_case_joueur + case_diff)%40;
+
+		// ajax -> update
 
 		$(".joueur_courant").remove();
 		selector = "#"+nouvelle_case;
 		$(selector).append("<img src='Image/" + joueur_num + ".png' id='" + joueur_num + "' class='" + joueur_num + " absolute joueur_courant' alt='" + joueur_num + "' />");
 
-		compteur_case++;
+		compteur_case++; //
 		
 	} // Sinon rien ne se passe
 	
@@ -105,3 +124,17 @@ function sleep(delay) {
 }
 
 
+function creerPartie(){
+      var id_partie;
+      $.ajax({
+        data : 'id_partie=' + id_partie,
+        url : 'php/start.php?ope=joueur_courant',
+        dataType : 'json',
+        success : function(data){
+          partie_id = data['partie_id'];
+          recupNbJoueurTotal(partie_id);
+          listerJoueurs();
+          afficheJoueurChef(data['partie_id']);
+        }
+      });
+    }
