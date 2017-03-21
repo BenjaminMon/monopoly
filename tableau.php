@@ -10,6 +10,15 @@
 <body>
   <div id="stat">
     <p>C'est au tour du joueur 1</p>
+    <p>Argent des joueurs :
+    </br>
+    Joueur 1 : 1500 €
+    </br>
+    Joueur 2 : 1500 €
+    </br>
+    Joueur 3 : 1500 €
+    </br>
+    Joueur 4 : 1500 €</p>
   </div>
   <center>
     <table>
@@ -33,7 +42,7 @@
         </td>
 
         <!-- CASE 3 -->
-        <td id="2" rowspan="2" class="relative" onclick="afficherPropriete('')">
+        <td id="2" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">CAISSE DE COMMUNAUTE</p><img src="Image/coffre de communauté.png" class="caseTrain" alt="train" />
         </td>
@@ -45,7 +54,7 @@
         </td>
 
         <!-- CASE 5 -->
-        <td id="4" rowspan="2" class="relative" onclick="afficherPropriete('')">
+        <td id="4" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">IMPOTS SUR LE REVENU</p><p></p><p id="prix4" class="rien">200 €</p>
         </td>
@@ -63,7 +72,7 @@
         </td>
 
         <!-- CASE 8 -->
-        <td id="7" rowspan="2" class="relative" onclick="afficherPropriete('')">
+        <td id="7" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">CHANCE</p><img src="Image/Chance 2.gif" class="caseTrain" alt="train"/>
         </td>
@@ -125,12 +134,12 @@
 
       <tr>
         <!-- CASE 3 DE LA LIGNE DE GAUCHE -->
-        <td id="38" colspan="2" class="text_centrer relative">
+        <td id="38" colspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">TAXE DE LUXE</p><img src="Image/Taxe.gif" class="caseTrain" alt="train" /><p id="prix38" class="rien">100 €</p>
         </td>
         <!-- CASE 3 DE LA LIGNE DE DROITE -->
-        <td id="12" colspan="2" class="text_centrer relative">
+        <td id="12" colspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">COMPAGNIE DE DISTRUBUTION D'ELECTRICITE</p><img src="Image/electricite.png" class="caseTrain" alt="train" />
           <p id="prix12" class="rien">150 €</p>
@@ -154,7 +163,7 @@
 
       <tr>
         <!-- CASE 5 DE LA LIGNE DE GAUCHE -->
-        <td id="36" colspan="2" class="text_centrer relative">
+        <td id="36" colspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">CHANCE</p><img src="Image/Chance 3.gif" class="caseTrain" alt="train" />
         </td>
@@ -196,12 +205,12 @@
 
       <tr>
         <!-- CASE 8 DE LA LIGNE DE GAUCHE -->
-        <td id="33" colspan="2" class="text_centrer relative">
+        <td id="33" colspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">CAISSE DE COMMUNAUTE</p><img src="Image/coffre de communauté.png" class="caseTrain" alt="train" />
         </td>
         <!-- CASE 8 DE LA LIGNE DE DROITE -->
-        <td id="17" colspan="2" class="text_centrer relative">
+        <td id="17" colspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!--<img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">CAISSE DE COMMUNAUTE</p><img src="Image/coffre de communauté.png" class="caseTrain" alt="train" />
         </td>
@@ -239,14 +248,14 @@
       <!-- TROISIEME LIGNE -->
       <tr class="Lbas">
         <!-- CASE 1 -->
-        <td id="30" colspan="2" rowspan="2" class="text_centrer relative">
+        <td id="30" colspan="2" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">Aller en prison</p>
         </td>
         <!-- CASE 2 -->
         <td class="maison6"></td>
         <!-- CASE 3 -->
-        <td id="28"rowspan="2" class="text_centrer relative">
+        <td id="28"rowspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">COMPAGNIE DE DISTRUBUTION DES EAUX</p><img src="Image/eau.gif" class="caseTrain" alt="train" />
           <p id="prix28" class="rien">150 €</p>
@@ -265,14 +274,14 @@
         <!-- CASE 8 -->
         <td class="maison5"></td>
         <!-- CASE 9 -->
-        <td id="22" rowspan="2" class="text_centrer relative">
+        <td id="22" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">CHANCE</p><img src="Image/Chance 1.gif" class="caseTrain" alt="train" />
         </td>
         <!-- CASE 10 -->
         <td class="maison5"></td>
         <!-- CASE 11 -->
-        <td id="20" colspan="2" rowspan="2" class="text_centrer relative">
+        <td id="20" colspan="2" rowspan="2" class="text_centrer relative" onclick="afficherPropriete('')">
           <!-- JOUEUR ICI : <img src="Image/joueur1.png" class="joueur1 absolute" alt="J1" />-->
           <p class="rien">Parking gratuit</p><img src="Image/parc_gratuit.png" class="caseTrain" alt="train" />
         </td>
